@@ -1,49 +1,48 @@
-/* ── Nav scroll ───────────────────────── */
-const nav = document.querySelector('nav');
-window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
+/* ============================================
+   Vindex Software – interactions
+   ============================================ */
 
-/* ── Shield draw animation ────────────── */
-const shield = document.getElementById('shield-svg');
-if (shield) {
-    // Draw the shield path
-    const paths = shield.querySelectorAll('.draw-path');
-    paths.forEach(p => {
-        const len = p.getTotalLength ? p.getTotalLength() : 300;
-        p.style.strokeDasharray = len;
-        p.style.strokeDashoffset = len;
-        p.style.transition = `stroke-dashoffset 1.4s cubic-bezier(.4,0,.2,1) ${p.dataset.delay || '0'}s`;
+/* ---- Nav: solid background after scroll ---- */
+const nav = document.getElementById('nav');
+function onScroll() {
+  if (window.scrollY > 40) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+/* ---- Reveal elements on scroll ---- */
+const reveals = document.querySelectorAll('.reveal');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (reduceMotion || !('IntersectionObserver' in window)) {
+  reveals.forEach(function (el) { el.classList.add('is-visible'); });
+} else {
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
     });
-
-    setTimeout(() => {
-        shield.classList.add('visible');
-        paths.forEach(p => { p.style.strokeDashoffset = '0'; });
-    }, 200);
+  }, { threshold: 0.12 });
+  reveals.forEach(function (el) { observer.observe(el); });
 }
 
-/* ── Scroll reveal ────────────────────── */
-const reveals = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-        if (e.isIntersecting) {
-            e.target.classList.add('in-view');
-            io.unobserve(e.target);
-        }
-    });
-}, { threshold: 0.12 });
-reveals.forEach(el => io.observe(el));
-
-/* ── Email form ───────────────────────── */
+/* ---- Contact form ---- */
 const form = document.getElementById('contact-form');
 if (form) {
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const email = form.querySelector('.email-input').value;
-        if (!email) return;
-        const btn = form.querySelector('.btn-primary');
-        btn.textContent = 'Sent — we\'ll be in touch';
-        btn.style.background = '#1f5c3a';
-        btn.disabled = true;
-    });
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const input = form.querySelector('input');
+    const button = form.querySelector('button');
+    if (!input.value) return;
+    button.textContent = "Sent – we'll be in touch";
+    button.classList.add('sent');
+    button.disabled = true;
+    // TODO: hook this up to your email service / backend here.
+  });
 }
