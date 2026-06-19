@@ -582,6 +582,9 @@ footer {
     gap: 2rem;
     font-size: .8rem;
     color: rgba(200, 184, 154, .5);
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .footer-links a:hover {
