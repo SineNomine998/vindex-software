@@ -147,8 +147,8 @@ section h2 {
 
 #nav.scrolled {
   background: rgba(13, 17, 23, .88);
-  backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
   border-bottom-color: rgba(200, 184, 154, .1);
 }
 
