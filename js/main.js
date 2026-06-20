@@ -2,19 +2,15 @@
    Vindex Software – interactions
    ============================================ */
 
-/* ---- Nav: solid background after scroll ---- */
+/* ---- Nav: shadow on scroll ---- */
 const nav = document.getElementById('nav');
 function onScroll() {
-  if (window.scrollY > 40) {
-    nav.classList.add('scrolled');
-  } else {
-    nav.classList.remove('scrolled');
-  }
+  nav.classList.toggle('scrolled', window.scrollY > 40);
 }
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 
-/* ---- Reveal elements on scroll ---- */
+/* ---- Reveal on scroll ---- */
 const reveals = document.querySelectorAll('.reveal');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -28,21 +24,46 @@ if (reduceMotion || !('IntersectionObserver' in window)) {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.1 });
   reveals.forEach(function (el) { observer.observe(el); });
 }
 
-/* ---- Contact form ---- */
-const form = document.getElementById('contact-form');
-if (form) {
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const input = form.querySelector('input');
-    const button = form.querySelector('button');
-    if (!input.value) return;
-    button.textContent = "Sent – we'll be in touch";
-    button.classList.add('sent');
-    button.disabled = true;
-    // TODO: hook this up to your email service / backend here.
+/* ---- Screenshot sliders ---- */
+document.querySelectorAll('.slider-dot').forEach(function (dot) {
+  dot.addEventListener('click', function () {
+    var trackId = dot.dataset.track;
+    var index = parseInt(dot.dataset.index, 10);
+    var track = document.getElementById(trackId);
+    if (!track) return;
+
+    track.querySelectorAll('.screenshot-slide').forEach(function (slide, i) {
+      slide.classList.toggle('active', i === index);
+    });
+
+    var dotsContainer = dot.closest('.slider-dots');
+    dotsContainer.querySelectorAll('.slider-dot').forEach(function (d, i) {
+      d.classList.toggle('active', i === index);
+    });
   });
-}
+});
+
+/* ---- Auto-advance VredeVeranda slider every 3s ---- */
+(function () {
+  var trackId = 'vv-track';
+  var track = document.getElementById(trackId);
+  if (!track) return;
+
+  var current = 0;
+  var slides = track.querySelectorAll('.screenshot-slide');
+  var dots = document.querySelectorAll('[data-track="' + trackId + '"]');
+
+  setInterval(function () {
+    current = (current + 1) % slides.length;
+    slides.forEach(function (slide, i) {
+      slide.classList.toggle('active', i === current);
+    });
+    dots.forEach(function (dot, i) {
+      dot.classList.toggle('active', i === current);
+    });
+  }, 3000);
+}());
