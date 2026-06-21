@@ -4,6 +4,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Set theme before paint to avoid a flash of the wrong theme -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') {
+          t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
   <title>Vindex Software — Custom Software for Growing Businesses</title>
   <meta name="description"
     content="Vindex Software is a custom software studio building mobile apps, websites, webshops, and management systems for local businesses. Fixed-price projects, no hidden fees, and you own 100% of the code." />
@@ -18,8 +30,19 @@
   <meta property="og:url" content="https://vindexsoft.com/" />
   <meta property="og:site_name" content="Vindex Software" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:image" content="https://vindexsoft.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Vindex Software — custom software for growing businesses" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="nl_NL" />
+  <meta name="twitter:image" content="https://vindexsoft.com/assets/og-image.png" />
+  <meta name="twitter:title" content="Vindex Software — Custom Software for Growing Businesses" />
+  <meta name="twitter:description"
+    content="Custom mobile apps, websites, webshops, and management systems for local businesses. Fixed-price, transparent, and built to last." />
 
-  <link rel="icon" type="image/png" href="assets/vindex-mark.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 
   <!-- Fonts: Lexend (headings, built for readability & trust) + Inter (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,39 +56,103 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Vindex Software",
-    "url": "https://vindexsoft.com",
-    "email": "hello@vindex.software",
-    "description": "Custom software studio building mobile apps, websites, webshops, and management systems for local businesses.",
-    "logo": "https://vindexsoft.com/assets/vindex-mark.png",
-    "areaServed": "Netherlands",
-    "knowsAbout": ["Flutter app development", "Web development", "E-commerce", "Business management software", "AI solutions"]
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://vindexsoft.com/#organization",
+        "name": "Vindex Software",
+        "url": "https://vindexsoft.com",
+        "email": "hello@vindex.software",
+        "description": "Custom software studio building mobile apps, websites, webshops, and management systems for local businesses.",
+        "logo": "https://vindexsoft.com/assets/logo.png",
+        "image": "https://vindexsoft.com/assets/og-image.png",
+        "areaServed": "Netherlands",
+        "knowsAbout": ["Flutter app development", "Web development", "E-commerce", "Business management software", "AI solutions"],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "hello@vindex.software",
+          "contactType": "sales",
+          "areaServed": "NL",
+          "availableLanguage": ["English", "Dutch"]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://vindexsoft.com/#website",
+        "url": "https://vindexsoft.com",
+        "name": "Vindex Software",
+        "publisher": { "@id": "https://vindexsoft.com/#organization" },
+        "inLanguage": ["en", "nl"]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much does a project cost?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Every project is quoted up front with a fixed price, so there are no surprises. The cost depends on scope — a focused website is very different from a full management system. The first conversation is free, and so is the proposal." }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does it take?",
+            "acceptedAnswer": { "@type": "Answer", "text": "It depends on what we're building, but you'll get a clear timeline in your proposal before we start. We build iteratively and show you working software early, so you're never left wondering about progress." }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I actually own the software?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes — 100%. When we hand over, the code and everything around it is yours outright. No lock-in, no leasing, no monthly licence just to keep using what you paid for." }
+          },
+          {
+            "@type": "Question",
+            "name": "What if I need changes after launch?",
+            "acceptedAnswer": { "@type": "Answer", "text": "We stay available for updates, fixes, and new features whenever you need them — always on your terms. There's no forced support contract; you reach out when something comes up." }
+          },
+          {
+            "@type": "Question",
+            "name": "Where are you based?",
+            "acceptedAnswer": { "@type": "Answer", "text": "We're a Netherlands-based studio working with local and growing businesses. We're happy to meet in person where practical, and work comfortably online too." }
+          },
+          {
+            "@type": "Question",
+            "name": "How do we get started?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Just send us a message describing your idea — no commitment, just a conversation. We'll get back to you within one business day to talk through what you need." }
+          }
+        ]
+      }
+    ]
   }
   </script>
 </head>
 
 <body>
-  <a href="#main" class="skip-link">Skip to content</a>
+  <a href="#main" class="skip-link" data-i18n="skip">Skip to content</a>
 
   <!-- ─────────────────────────  Nav  ───────────────────────── -->
   <header id="nav">
     <div class="container nav-inner">
       <a href="#hero" class="brand" aria-label="Vindex Software — home">
-        <img src="assets/vindex-mark.png" alt="" class="brand-mark" aria-hidden="true" />
+        <picture>
+          <source srcset="assets/logo.webp" type="image/webp" />
+          <img src="assets/logo.png" alt="" class="brand-mark" width="23" height="30" aria-hidden="true" />
+        </picture>
         <span>Vindex<span class="brand-soft"> Software</span></span>
       </a>
 
       <nav class="nav-links" aria-label="Primary">
-        <a href="#services">Services</a>
-        <a href="#work">Our Work</a>
-        <a href="#why">Why Vindex</a>
-        <a href="#team">Team</a>
-        <a href="#faq">FAQ</a>
+        <a href="#services" data-i18n="nav.services">Services</a>
+        <a href="#work" data-i18n="nav.work">Our Work</a>
+        <a href="#why" data-i18n="nav.why">Why Vindex</a>
+        <a href="#team" data-i18n="nav.team">Team</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
       </nav>
 
       <div class="nav-actions">
-        <a href="#contact" class="btn btn-primary btn-sm">Start a project</a>
+        <button class="icon-btn lang-btn" id="lang-toggle" type="button" aria-label="Schakel naar het Nederlands">NL</button>
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to dark mode">
+          <svg class="ic ic-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" /></svg>
+          <svg class="ic ic-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></svg>
+        </button>
+        <a href="#contact" class="btn btn-primary btn-sm" data-i18n="cta.start">Start a project</a>
         <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
           <span></span><span></span><span></span>
         </button>
@@ -74,12 +161,12 @@
 
     <!-- Mobile menu -->
     <div class="mobile-menu" id="mobile-menu" hidden>
-      <a href="#services">Services</a>
-      <a href="#work">Our Work</a>
-      <a href="#why">Why Vindex</a>
-      <a href="#team">Team</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact" class="btn btn-primary">Start a project</a>
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#work" data-i18n="nav.work">Our Work</a>
+      <a href="#why" data-i18n="nav.why">Why Vindex</a>
+      <a href="#team" data-i18n="nav.team">Team</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      <a href="#contact" class="btn btn-primary" data-i18n="cta.start">Start a project</a>
     </div>
   </header>
 
@@ -89,29 +176,29 @@
     <section id="hero">
       <div class="container hero-container">
         <div class="hero-copy">
-          <p class="eyebrow"><span class="eyebrow-dot"></span>Custom software studio · Netherlands</p>
-          <h1>Software that fits your business —<span class="grad"> not the other way around.</span></h1>
-          <p class="lead">
+          <p class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="hero.eyebrow">Custom software studio · Netherlands</span></p>
+          <h1><span data-i18n="hero.h1a">Software that fits your business — </span><span class="grad" data-i18n="hero.h1b">not the other way around.</span></h1>
+          <p class="lead" data-i18n="hero.lead">
             We design and build custom mobile apps, websites, webshops, and management systems for
-            growing businesses. Fixed-price projects, no jargon, and you own 100&nbsp;% of the code.
+            growing businesses. Fixed-price projects, no jargon, and you own 100% of the code.
           </p>
           <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary btn-lg">Start a project</a>
-            <a href="#work" class="btn btn-ghost btn-lg">See our work</a>
+            <a href="#contact" class="btn btn-primary btn-lg" data-i18n="cta.start">Start a project</a>
+            <a href="#work" class="btn btn-ghost btn-lg" data-i18n="hero.cta_work">See our work</a>
           </div>
 
           <ul class="hero-trust" aria-label="What you can count on">
             <li>
               <svg class="ic-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7" /></svg>
-              Fixed price, no surprises
+              <span data-i18n="hero.trust1">Fixed price, no surprises</span>
             </li>
             <li>
               <svg class="ic-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7" /></svg>
-              You own the code
+              <span data-i18n="hero.trust2">You own the code</span>
             </li>
             <li>
               <svg class="ic-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7" /></svg>
-              Direct line to the developers
+              <span data-i18n="hero.trust3">Direct line to the developers</span>
             </li>
           </ul>
         </div>
@@ -125,14 +212,14 @@
             </div>
             <div class="mock-dash-body">
               <div class="mock-kpis">
-                <div class="mock-kpi"><span class="kpi-num">+38%</span><span class="kpi-lbl">Bookings</span></div>
-                <div class="mock-kpi"><span class="kpi-num">1.2k</span><span class="kpi-lbl">Customers</span></div>
-                <div class="mock-kpi"><span class="kpi-num">€24k</span><span class="kpi-lbl">Revenue</span></div>
+                <div class="mock-kpi"><span class="kpi-num" data-to="38" data-prefix="+" data-suffix="%">+38%</span><span class="kpi-lbl" data-i18n="mock.bookings">Bookings</span></div>
+                <div class="mock-kpi"><span class="kpi-num" data-to="1.2" data-suffix="k" data-dec="1">1.2k</span><span class="kpi-lbl" data-i18n="mock.customers">Customers</span></div>
+                <div class="mock-kpi"><span class="kpi-num" data-to="24" data-prefix="€" data-suffix="k">€24k</span><span class="kpi-lbl" data-i18n="mock.revenue">Revenue</span></div>
               </div>
               <div class="mock-chart">
-                <span style="height:42%"></span><span style="height:58%"></span><span style="height:48%"></span>
-                <span style="height:72%"></span><span style="height:64%"></span><span style="height:88%"></span>
-                <span style="height:80%"></span>
+                <span style="height:42%;--i:0"></span><span style="height:58%;--i:1"></span><span style="height:48%;--i:2"></span>
+                <span style="height:72%;--i:3"></span><span style="height:64%;--i:4"></span><span style="height:88%;--i:5"></span>
+                <span style="height:80%;--i:6"></span>
               </div>
             </div>
           </div>
@@ -148,7 +235,7 @@
           </div>
           <div class="mock-badge">
             <svg class="ic-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7" /></svg>
-            Shipped on time
+            <span data-i18n="mock.shipped">Shipped on time</span>
           </div>
         </div>
       </div>
@@ -157,7 +244,7 @@
     <!-- ─────────────────────────  Trust strip  ───────────────────────── -->
     <section id="trusted" aria-label="Businesses we work with">
       <div class="container">
-        <p class="trust-label">Trusted by businesses that depend on their software every day</p>
+        <p class="trust-label" data-i18n="trust.label">Trusted by businesses that depend on their software every day</p>
         <ul class="trust-logos">
           <li>VredeVeranda</li>
           <li>Capan's Barber Shop</li>
@@ -170,9 +257,9 @@
     <section id="services">
       <div class="container">
         <div class="section-head">
-          <p class="eyebrow"><span class="eyebrow-dot"></span>What we build</p>
-          <h2 class="section-title">One studio for every digital need</h2>
-          <p class="section-sub">From the first idea to a product your customers love — we handle the design, the
+          <p class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="services.eyebrow">What we build</span></p>
+          <h2 class="section-title" data-i18n="services.title">One studio for every digital need</h2>
+          <p class="section-sub" data-i18n="services.sub">From the first idea to a product your customers love — we handle the design, the
             engineering, and the support, so you don't have to juggle five different agencies.</p>
         </div>
 
@@ -181,8 +268,8 @@
             <div class="service-icon">
               <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3" /><path d="M11 18h2" /></svg>
             </div>
-            <h3>Mobile Apps</h3>
-            <p>Fast, beautiful iOS &amp; Android apps built in Flutter — designed around how your team and customers
+            <h3 data-i18n="service1.title">Mobile Apps</h3>
+            <p data-i18n="service1.desc">Fast, beautiful iOS &amp; Android apps built in Flutter — designed around how your team and customers
               actually work.</p>
           </article>
 
@@ -190,8 +277,8 @@
             <div class="service-icon">
               <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="14" rx="2" /><path d="M8 21h8M12 18v3" /></svg>
             </div>
-            <h3>Websites &amp; Webshops</h3>
-            <p>Modern, mobile-first websites and online stores — optimised for conversions and easy for new customers
+            <h3 data-i18n="service2.title">Websites &amp; Webshops</h3>
+            <p data-i18n="service2.desc">Modern, mobile-first websites and online stores — optimised for conversions and easy for new customers
               to find on Google.</p>
           </article>
 
@@ -199,8 +286,8 @@
             <div class="service-icon">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H7a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2" /><rect x="9" y="2.5" width="6" height="4" rx="1" /><path d="M9 12h6M9 16h4" /></svg>
             </div>
-            <h3>Management Systems</h3>
-            <p>Custom software for scheduling, payments, customer records, and internal processes — built exactly the
+            <h3 data-i18n="service3.title">Management Systems</h3>
+            <p data-i18n="service3.desc">Custom software for scheduling, payments, customer records, and internal processes — built exactly the
               way your business runs.</p>
           </article>
 
@@ -208,8 +295,8 @@
             <div class="service-icon">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 7.5 12 12l9-4.5L12 3Z" /><path d="M3 12l9 4.5L21 12M3 16.5 12 21l9-4.5" /></svg>
             </div>
-            <h3>AI &amp; Data Solutions</h3>
-            <p>Smart dashboards, automation, and AI that's genuinely useful at small-business scale — helping you decide
+            <h3 data-i18n="service4.title">AI &amp; Data Solutions</h3>
+            <p data-i18n="service4.desc">Smart dashboards, automation, and AI that's genuinely useful at small-business scale — helping you decide
               faster with less guesswork.</p>
           </article>
         </div>
@@ -220,9 +307,9 @@
     <section id="work">
       <div class="container">
         <div class="section-head">
-          <p class="eyebrow"><span class="eyebrow-dot"></span>Selected work</p>
-          <h2 class="section-title">Real products, real businesses</h2>
-          <p class="section-sub">A few of the projects we've designed, built, and continue to support.</p>
+          <p class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="work.eyebrow">Selected work</span></p>
+          <h2 class="section-title" data-i18n="work.title">Real products, real businesses</h2>
+          <p class="section-sub" data-i18n="work.sub">A few of the projects we've designed, built, and continue to support.</p>
         </div>
 
         <div class="work-grid">
@@ -234,18 +321,18 @@
                 <div class="work-logo vv">VV</div>
                 <div>
                   <h3>VredeVeranda</h3>
-                  <p class="work-type">Flutter app · Custom webshop</p>
+                  <p class="work-type" data-i18n="vv.type">Flutter app · Custom webshop</p>
                 </div>
               </div>
-              <p class="work-desc">
+              <p class="work-desc" data-i18n="vv.desc">
                 We built VredeVeranda a complete customer-process application in Flutter — streamlining bookings,
                 customer records, and internal workflows in one place. Then we delivered a fully custom webshop so
                 they could sell their products online with ease.
               </p>
               <ul class="work-points">
-                <li><svg class="ic-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7" /></svg>Bookings &amp; customer management in one app</li>
-                <li><svg class="ic-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7" /></svg>Custom-built online webshop</li>
-                <li><svg class="ic-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7" /></svg>One streamlined internal workflow</li>
+                <li><svg class="ic-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7" /></svg><span data-i18n="vv.point1">Bookings &amp; customer management in one app</span></li>
+                <li><svg class="ic-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7" /></svg><span data-i18n="vv.point2">Custom-built online webshop</span></li>
+                <li><svg class="ic-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7" /></svg><span data-i18n="vv.point3">One streamlined internal workflow</span></li>
               </ul>
             </div>
 
@@ -262,7 +349,7 @@
                       </div>
                     </div>
                   </div>
-                  <p class="slide-caption">Customer overview</p>
+                  <p class="slide-caption" data-i18n="cap.customer">Customer overview</p>
                 </div>
                 <div class="screenshot-slide">
                   <div class="phone-mockup">
@@ -277,7 +364,7 @@
                       <div class="mock-list"><div class="mock-row short"></div><div class="mock-row"></div></div>
                     </div>
                   </div>
-                  <p class="slide-caption">Booking management</p>
+                  <p class="slide-caption" data-i18n="cap.booking">Booking management</p>
                 </div>
                 <div class="screenshot-slide">
                   <div class="phone-mockup">
@@ -290,7 +377,7 @@
                       </div>
                     </div>
                   </div>
-                  <p class="slide-caption">Online webshop</p>
+                  <p class="slide-caption" data-i18n="cap.webshop">Online webshop</p>
                 </div>
               </div>
               <div class="slider-dots">
@@ -307,10 +394,10 @@
               <div class="work-logo cb">CB</div>
               <div>
                 <h3>Capan's Barber Shop</h3>
-                <p class="work-type">Website</p>
+                <p class="work-type" data-i18n="cb.type">Website</p>
               </div>
             </div>
-            <p class="work-desc">
+            <p class="work-desc" data-i18n="cb.desc">
               A sleek, mobile-first website showcasing their services, team, and prices — and letting customers book
               appointments online. Optimised for local search so new customers find them easily.
             </p>
@@ -336,21 +423,21 @@
               <div class="work-logo kp">KP</div>
               <div>
                 <h3>Kennispoint</h3>
-                <p class="work-type">Student &amp; teacher management</p>
+                <p class="work-type" data-i18n="kp.type">Student &amp; teacher management</p>
               </div>
             </div>
-            <p class="work-desc">
+            <p class="work-desc" data-i18n="kp.desc">
               A comprehensive platform covering homework tracking, scheduling, payments, and progress monitoring — for
               both students and teachers, all in one unified app.
             </p>
             <div class="feature-tags">
-              <span class="tag">Homework tracking</span>
-              <span class="tag">Scheduling</span>
-              <span class="tag">Payment tracking</span>
-              <span class="tag">Student records</span>
-              <span class="tag">Teacher portal</span>
-              <span class="tag">Progress reports</span>
-              <span class="tag">Notifications</span>
+              <span class="tag" data-i18n="tag.homework">Homework tracking</span>
+              <span class="tag" data-i18n="tag.scheduling">Scheduling</span>
+              <span class="tag" data-i18n="tag.payment">Payment tracking</span>
+              <span class="tag" data-i18n="tag.students">Student records</span>
+              <span class="tag" data-i18n="tag.teacher">Teacher portal</span>
+              <span class="tag" data-i18n="tag.progress">Progress reports</span>
+              <span class="tag" data-i18n="tag.notif">Notifications</span>
             </div>
           </article>
 
@@ -362,42 +449,42 @@
     <section id="why">
       <div class="container">
         <div class="section-head">
-          <p class="eyebrow"><span class="eyebrow-dot"></span>Why Vindex</p>
-          <h2 class="section-title">What you can count on</h2>
-          <p class="section-sub">Working with a software studio shouldn't feel like a gamble. Here's what's true on
+          <p class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="why.eyebrow">Why Vindex</span></p>
+          <h2 class="section-title" data-i18n="why.title">What you can count on</h2>
+          <p class="section-sub" data-i18n="why.sub">Working with a software studio shouldn't feel like a gamble. Here's what's true on
             every project we take on.</p>
         </div>
 
         <div class="why-grid">
           <article class="why-card reveal">
             <div class="why-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V5l-8-3Z" /><path d="m9 12 2 2 4-4" /></svg></div>
-            <h3>Fixed price, no surprises</h3>
-            <p>A clear proposal with a fixed timeline and fixed cost before we start. No hidden fees, no creeping invoices.</p>
+            <h3 data-i18n="why1.title">Fixed price, no surprises</h3>
+            <p data-i18n="why1.desc">A clear proposal with a fixed timeline and fixed cost before we start. No hidden fees, no creeping invoices.</p>
           </article>
           <article class="why-card reveal">
             <div class="why-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 18 22 12 16 6M8 6 2 12l6 6" /></svg></div>
-            <h3>You own 100% of the code</h3>
-            <p>When we hand over, it's yours — outright. No lock-in, no leases, no holding your software hostage.</p>
+            <h3 data-i18n="why2.title">You own 100% of the code</h3>
+            <p data-i18n="why2.desc">When we hand over, it's yours — outright. No lock-in, no leases, no holding your software hostage.</p>
           </article>
           <article class="why-card reveal">
             <div class="why-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z" /></svg></div>
-            <h3>Direct line to the developers</h3>
-            <p>You talk to the people building your software — not a call centre. No jargon, no account-manager telephone game.</p>
+            <h3 data-i18n="why3.title">Direct line to the developers</h3>
+            <p data-i18n="why3.desc">You talk to the people building your software — not a call centre. No jargon, no account-manager telephone game.</p>
           </article>
           <article class="why-card reveal">
             <div class="why-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v4l3 3" /><circle cx="12" cy="12" r="9" /></svg></div>
-            <h3>Built early, shown often</h3>
-            <p>You see working software early and shape it as we go — your feedback guides every stage, not just the end.</p>
+            <h3 data-i18n="why4.title">Built early, shown often</h3>
+            <p data-i18n="why4.desc">You see working software early and shape it as we go — your feedback guides every stage, not just the end.</p>
           </article>
           <article class="why-card reveal">
             <div class="why-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7 9 18l-5-5" /></svg></div>
-            <h3>Support after launch</h3>
-            <p>We stay available for updates, fixes, and future work — always on your terms, never on a forced contract.</p>
+            <h3 data-i18n="why5.title">Support after launch</h3>
+            <p data-i18n="why5.desc">We stay available for updates, fixes, and future work — always on your terms, never on a forced contract.</p>
           </article>
           <article class="why-card reveal">
             <div class="why-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20" /><circle cx="12" cy="12" r="4" /></svg></div>
-            <h3>Made for your scale</h3>
-            <p>Powerful software without the enterprise price tag — right-sized for local and growing businesses.</p>
+            <h3 data-i18n="why6.title">Made for your scale</h3>
+            <p data-i18n="why6.desc">Powerful software without the enterprise price tag — right-sized for local and growing businesses.</p>
           </article>
         </div>
       </div>
@@ -407,33 +494,33 @@
     <section id="process">
       <div class="container">
         <div class="section-head">
-          <p class="eyebrow"><span class="eyebrow-dot"></span>How we work</p>
-          <h2 class="section-title">From idea to shipped product</h2>
-          <p class="section-sub">A simple, transparent process — you always know where things stand.</p>
+          <p class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="process.eyebrow">How we work</span></p>
+          <h2 class="section-title" data-i18n="process.title">From idea to shipped product</h2>
+          <p class="section-sub" data-i18n="process.sub">A simple, transparent process — you always know where things stand.</p>
         </div>
 
         <ol class="process-grid">
           <li class="process-step reveal">
             <div class="step-num">01</div>
-            <h3>Discover</h3>
-            <p>No demos, no jargon. We start with a conversation to understand your business and define the right problem
+            <h3 data-i18n="step1.title">Discover</h3>
+            <p data-i18n="step1.desc">No demos, no jargon. We start with a conversation to understand your business and define the right problem
               to solve.</p>
           </li>
           <li class="process-step reveal">
             <div class="step-num">02</div>
-            <h3>Plan</h3>
-            <p>A clear proposal with a fixed timeline and fixed cost. You know exactly what you're getting before any
+            <h3 data-i18n="step2.title">Plan</h3>
+            <p data-i18n="step2.desc">A clear proposal with a fixed timeline and fixed cost. You know exactly what you're getting before any
               work begins.</p>
           </li>
           <li class="process-step reveal">
             <div class="step-num">03</div>
-            <h3>Build</h3>
-            <p>We build iteratively and show you working software early. Your feedback shapes every stage along the way.</p>
+            <h3 data-i18n="step3.title">Build</h3>
+            <p data-i18n="step3.desc">We build iteratively and show you working software early. Your feedback shapes every stage along the way.</p>
           </li>
           <li class="process-step reveal">
             <div class="step-num">04</div>
-            <h3>Launch &amp; support</h3>
-            <p>You own it outright. We stay available for support, updates, and future work — always on your terms.</p>
+            <h3 data-i18n="step4.title">Launch &amp; support</h3>
+            <p data-i18n="step4.desc">You own it outright. We stay available for support, updates, and future work — always on your terms.</p>
           </li>
         </ol>
       </div>
@@ -443,29 +530,29 @@
     <section id="team">
       <div class="container">
         <div class="section-head">
-          <p class="eyebrow"><span class="eyebrow-dot"></span>The team</p>
-          <h2 class="section-title">Built by people who care</h2>
-          <p class="section-sub">A small, focused team — the same people you talk to are the ones who build your software.</p>
+          <p class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="team.eyebrow">The team</span></p>
+          <h2 class="section-title" data-i18n="team.title">Built by people who care</h2>
+          <p class="section-sub" data-i18n="team.sub">A small, focused team — the same people you talk to are the ones who build your software.</p>
         </div>
 
         <div class="team-grid">
           <article class="team-card reveal">
             <div class="avatar">Y</div>
             <h3>Yusuf</h3>
-            <p class="role">Software Engineering</p>
-            <p>Focused on backend systems and scalable architecture. Believes good software should feel invisible.</p>
+            <p class="role" data-i18n="role.se">Software Engineering</p>
+            <p data-i18n="team.bio1">Focused on backend systems and scalable architecture. Believes good software should feel invisible.</p>
           </article>
           <article class="team-card reveal">
             <div class="avatar">O</div>
             <h3>Oktay</h3>
-            <p class="role">Data Science &amp; AI</p>
-            <p>Specialist in applied machine learning and making AI genuinely useful at the small-business scale.</p>
+            <p class="role" data-i18n="role.ds">Data Science &amp; AI</p>
+            <p data-i18n="team.bio2">Specialist in applied machine learning and making AI genuinely useful at the small-business scale.</p>
           </article>
           <article class="team-card reveal">
             <div class="avatar">E</div>
             <h3>Enes</h3>
-            <p class="role">Software Engineering</p>
-            <p>Full-stack developer with a passion for product design and human-centred interfaces.</p>
+            <p class="role" data-i18n="role.se">Software Engineering</p>
+            <p data-i18n="team.bio3">Full-stack developer with a passion for product design and human-centred interfaces.</p>
           </article>
         </div>
       </div>
@@ -475,41 +562,41 @@
     <section id="faq">
       <div class="container faq-container">
         <div class="section-head">
-          <p class="eyebrow"><span class="eyebrow-dot"></span>Questions &amp; answers</p>
-          <h2 class="section-title">Everything you might be wondering</h2>
+          <p class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="faq.eyebrow">Questions &amp; answers</span></p>
+          <h2 class="section-title" data-i18n="faq.title">Everything you might be wondering</h2>
         </div>
 
         <div class="faq-list">
           <details class="faq-item reveal">
-            <summary>How much does a project cost?<span class="faq-chev" aria-hidden="true"></span></summary>
-            <div class="faq-body"><p>Every project is quoted up front with a fixed price, so there are no surprises. The
+            <summary><span data-i18n="faq.q1">How much does a project cost?</span><span class="faq-chev" aria-hidden="true"></span></summary>
+            <div class="faq-body"><p data-i18n="faq.a1">Every project is quoted up front with a fixed price, so there are no surprises. The
               cost depends on scope — a focused website is very different from a full management system. The first
               conversation is free, and so is the proposal.</p></div>
           </details>
           <details class="faq-item reveal">
-            <summary>How long does it take?<span class="faq-chev" aria-hidden="true"></span></summary>
-            <div class="faq-body"><p>It depends on what we're building, but you'll get a clear timeline in your proposal
+            <summary><span data-i18n="faq.q2">How long does it take?</span><span class="faq-chev" aria-hidden="true"></span></summary>
+            <div class="faq-body"><p data-i18n="faq.a2">It depends on what we're building, but you'll get a clear timeline in your proposal
               before we start. We build iteratively and show you working software early, so you're never left wondering
               about progress.</p></div>
           </details>
           <details class="faq-item reveal">
-            <summary>Do I actually own the software?<span class="faq-chev" aria-hidden="true"></span></summary>
-            <div class="faq-body"><p>Yes — 100&nbsp;%. When we hand over, the code and everything around it is yours
+            <summary><span data-i18n="faq.q3">Do I actually own the software?</span><span class="faq-chev" aria-hidden="true"></span></summary>
+            <div class="faq-body"><p data-i18n="faq.a3">Yes — 100%. When we hand over, the code and everything around it is yours
               outright. No lock-in, no leasing, no monthly licence just to keep using what you paid for.</p></div>
           </details>
           <details class="faq-item reveal">
-            <summary>What if I need changes after launch?<span class="faq-chev" aria-hidden="true"></span></summary>
-            <div class="faq-body"><p>We stay available for updates, fixes, and new features whenever you need them —
+            <summary><span data-i18n="faq.q4">What if I need changes after launch?</span><span class="faq-chev" aria-hidden="true"></span></summary>
+            <div class="faq-body"><p data-i18n="faq.a4">We stay available for updates, fixes, and new features whenever you need them —
               always on your terms. There's no forced support contract; you reach out when something comes up.</p></div>
           </details>
           <details class="faq-item reveal">
-            <summary>Where are you based?<span class="faq-chev" aria-hidden="true"></span></summary>
-            <div class="faq-body"><p>We're a Netherlands-based studio working with local and growing businesses. We're
+            <summary><span data-i18n="faq.q5">Where are you based?</span><span class="faq-chev" aria-hidden="true"></span></summary>
+            <div class="faq-body"><p data-i18n="faq.a5">We're a Netherlands-based studio working with local and growing businesses. We're
               happy to meet in person where practical, and work comfortably online too.</p></div>
           </details>
           <details class="faq-item reveal">
-            <summary>How do we get started?<span class="faq-chev" aria-hidden="true"></span></summary>
-            <div class="faq-body"><p>Just send us a message describing your idea — no commitment, just a conversation.
+            <summary><span data-i18n="faq.q6">How do we get started?</span><span class="faq-chev" aria-hidden="true"></span></summary>
+            <div class="faq-body"><p data-i18n="faq.a6">Just send us a message describing your idea — no commitment, just a conversation.
               We'll get back to you within one business day to talk through what you need.</p></div>
           </details>
         </div>
@@ -520,8 +607,8 @@
     <section id="contact">
       <div class="container contact-grid">
         <div class="contact-copy">
-          <h2>Ready to build something?</h2>
-          <p class="contact-lead">Tell us about your project — no commitment, just a conversation. We reply within one
+          <h2 data-i18n="contact.title">Ready to build something?</h2>
+          <p class="contact-lead" data-i18n="contact.lead">Tell us about your project — no commitment, just a conversation. We reply within one
             business day.</p>
 
           <ul class="contact-points">
@@ -531,40 +618,40 @@
             </li>
             <li>
               <svg viewBox="0 0 24 24" aria-hidden="true" class="ic-line"><circle cx="12" cy="10" r="3" /><path d="M12 2a8 8 0 0 0-8 8c0 5 8 12 8 12s8-7 8-12a8 8 0 0 0-8-8Z" /></svg>
-              Based in the Netherlands
+              <span data-i18n="contact.based">Based in the Netherlands</span>
             </li>
             <li>
               <svg viewBox="0 0 24 24" aria-hidden="true" class="ic-line"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
-              Replies within 1 business day
+              <span data-i18n="contact.replies">Replies within 1 business day</span>
             </li>
           </ul>
         </div>
 
         <form class="contact-form" id="contact-form" novalidate>
           <div class="field">
-            <label for="cf-name">Name</label>
-            <input type="text" id="cf-name" name="name" autocomplete="name" required placeholder="Your name" />
+            <label for="cf-name" data-i18n="form.name">Name</label>
+            <input type="text" id="cf-name" name="name" autocomplete="name" required placeholder="Your name" data-i18n-ph="form.name_ph" />
           </div>
           <div class="field">
-            <label for="cf-email">Email</label>
-            <input type="email" id="cf-email" name="email" autocomplete="email" required placeholder="you@business.com" />
+            <label for="cf-email" data-i18n="form.email">Email</label>
+            <input type="email" id="cf-email" name="email" autocomplete="email" required placeholder="you@business.com" data-i18n-ph="form.email_ph" />
           </div>
           <div class="field">
-            <label for="cf-type">What can we help with?</label>
+            <label for="cf-type" data-i18n="form.help">What can we help with?</label>
             <select id="cf-type" name="type">
-              <option>Mobile app</option>
-              <option>Website or webshop</option>
-              <option>Management system</option>
-              <option>AI &amp; data</option>
-              <option>Something else</option>
+              <option data-i18n="form.opt1">Mobile app</option>
+              <option data-i18n="form.opt2">Website or webshop</option>
+              <option data-i18n="form.opt3">Management system</option>
+              <option data-i18n="form.opt4">AI &amp; data</option>
+              <option data-i18n="form.opt5">Something else</option>
             </select>
           </div>
           <div class="field">
-            <label for="cf-msg">Project details</label>
-            <textarea id="cf-msg" name="message" rows="4" required placeholder="A sentence or two about what you have in mind."></textarea>
+            <label for="cf-msg" data-i18n="form.details">Project details</label>
+            <textarea id="cf-msg" name="message" rows="4" required placeholder="A sentence or two about what you have in mind." data-i18n-ph="form.details_ph"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary btn-lg btn-block">Send message</button>
-          <p class="form-note" id="form-note" role="status" aria-live="polite">This opens your email app with the details
+          <button type="submit" class="btn btn-primary btn-lg btn-block" data-i18n="form.send">Send message</button>
+          <p class="form-note" id="form-note" role="status" aria-live="polite" data-i18n="form.note">This opens your email app with the details
             ready to send.</p>
         </form>
       </div>
@@ -577,32 +664,39 @@
     <div class="container footer-inner">
       <div class="footer-brand">
         <a href="#hero" class="brand">
-          <img src="assets/vindex-mark.png" alt="" class="brand-mark" aria-hidden="true" />
+          <picture>
+            <source srcset="assets/logo.webp" type="image/webp" />
+            <img src="assets/logo.png" alt="" class="brand-mark" width="23" height="30" aria-hidden="true" />
+          </picture>
           <span>Vindex<span class="brand-soft"> Software</span></span>
         </a>
-        <p>Custom software for growing businesses. Designed, built, and supported in the Netherlands.</p>
+        <p data-i18n="footer.desc">Custom software for growing businesses. Designed, built, and supported in the Netherlands.</p>
       </div>
 
       <nav class="footer-col" aria-label="Footer">
-        <h4>Explore</h4>
-        <a href="#services">Services</a>
-        <a href="#work">Our Work</a>
-        <a href="#why">Why Vindex</a>
-        <a href="#team">Team</a>
-        <a href="#faq">FAQ</a>
+        <h4 data-i18n="footer.explore">Explore</h4>
+        <a href="#services" data-i18n="nav.services">Services</a>
+        <a href="#work" data-i18n="nav.work">Our Work</a>
+        <a href="#why" data-i18n="nav.why">Why Vindex</a>
+        <a href="#team" data-i18n="nav.team">Team</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
       </nav>
 
       <div class="footer-col">
-        <h4>Get in touch</h4>
+        <h4 data-i18n="footer.getintouch">Get in touch</h4>
         <a href="mailto:hello@vindex.software">hello@vindex.software</a>
-        <a href="#contact">Start a project</a>
+        <a href="#contact" data-i18n="cta.start">Start a project</a>
       </div>
     </div>
     <div class="container footer-bottom">
-      <span>© 2026 Vindex Software. All rights reserved.</span>
-      <span class="footer-made">Built with care in the Netherlands</span>
+      <span data-i18n="footer.rights">© 2026 Vindex Software. All rights reserved.</span>
+      <span class="footer-made" data-i18n="footer.made">Built with care in the Netherlands</span>
     </div>
   </footer>
+
+  <button class="to-top" id="to-top" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 15 6-6 6 6" /></svg>
+  </button>
 
   <script src="js/main.js"></script>
 </body>

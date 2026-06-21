@@ -1,0 +1,8 @@
+# robots.txt — Vindex Software
+User-agent: *
+Allow: /
+
+# AI answer engines are welcome to read and cite our content
+# (aids discovery via ChatGPT, Perplexity, and Google AI Overviews)
+
+Sitemap: https://vindexsoft.com/sitemap.xml

@@ -377,6 +377,19 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   box-shadow: var(--sh-lg);
   overflow: hidden;
   z-index: 1;
+  will-change: transform;
+  animation: dash-in 0.85s var(--ease) both, floatA 7s ease-in-out 1s infinite;
+}
+/* Light sweep across the dashboard (premium "shine") */
+.mock-dash::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 32%, rgba(255, 255, 255, 0.55) 48%, transparent 64%);
+  transform: translateX(-130%);
+  animation: sweep 6.5s ease-in-out 2.2s infinite;
+  pointer-events: none;
+  z-index: 4;
 }
 .mock-dash-top {
   display: flex;
@@ -415,6 +428,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   flex: 1;
   border-radius: 5px 5px 0 0;
   background: linear-gradient(180deg, var(--gold-400), var(--gold-300));
+  transform-origin: bottom;
+  transform: scaleY(1);
+  animation: bar-breathe 4.2s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -0.55s);
 }
 .mock-chart span:last-child { background: var(--navy-800); }
 
@@ -427,6 +444,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   padding: 7px;
   box-shadow: var(--sh-lg);
   z-index: 2;
+  will-change: transform;
+  animation: phone-in 0.9s var(--ease) 0.35s both, floatB 6s ease-in-out 1.35s infinite;
 }
 .mock-phone-notch { width: 42px; height: 9px; background: var(--navy-950); border-radius: 0 0 7px 7px; margin: 0 auto 5px; }
 .mock-phone-screen {
@@ -439,8 +458,17 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   min-height: 210px;
 }
 .mp-bar { height: 11px; width: 55%; border-radius: 4px; background: var(--navy-800); }
-.mp-card { height: 56px; border-radius: 10px; background: var(--gold-100); border: 1px solid var(--gold-300); }
-.mp-row { height: 9px; border-radius: 4px; background: var(--slate-200); }
+.mp-card {
+  height: 56px; border-radius: 10px;
+  background: var(--gold-100); border: 1px solid var(--gold-300);
+  animation: card-pulse 2.6s ease-in-out infinite;
+}
+.mp-row {
+  height: 9px; border-radius: 4px;
+  background: linear-gradient(90deg, var(--slate-200) 25%, var(--slate-100) 50%, var(--slate-200) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.8s linear infinite;
+}
 .mp-row.short { width: 60%; }
 
 .mock-badge {
@@ -458,6 +486,44 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   font-weight: 600;
   color: var(--navy-900);
   z-index: 3;
+  will-change: transform;
+  animation: badge-in 0.55s var(--ease) 1s both, floatC 5s ease-in-out 1.7s infinite;
+}
+
+/* ---- Hero motion keyframes ---- */
+@keyframes dash-in {
+  from { opacity: 0; transform: translateY(28px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes phone-in {
+  from { opacity: 0; transform: translate(26px, 22px); }
+  to   { opacity: 1; transform: translate(0, 0); }
+}
+@keyframes badge-in {
+  from { opacity: 0; transform: translateY(-10px) scale(0.82); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes bar-breathe {
+  0%, 100% { transform: scaleY(0.9); }
+  50%      { transform: scaleY(1); }
+}
+@keyframes floatA { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+@keyframes floatB { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+@keyframes floatC { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes sweep {
+  0% { transform: translateX(-130%); }
+  16% { transform: translateX(130%); }
+  100% { transform: translateX(130%); }
+}
+@keyframes shimmer { to { background-position: -200% 0; } }
+@keyframes card-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.62; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .mock-dash, .mock-phone, .mock-badge, .mock-chart span,
+  .mock-dash::after, .mp-row, .mp-card {
+    animation: none !important;
+  }
+  .mock-chart span { transform: scaleY(1); }
 }
 
 /* ============================================================
@@ -893,3 +959,127 @@ footer { background: var(--navy-950); color: var(--slate-300); padding: 3.5rem 0
   .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
   .hero-actions .btn { flex: 1; }
 }
+
+/* ============================================================
+   Icon button (theme toggle) + scroll-spy + back-to-top
+   ============================================================ */
+.icon-btn {
+  width: 42px; height: 42px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+  border: 1.5px solid var(--slate-300);
+  border-radius: var(--r-sm);
+  color: var(--navy-900);
+  cursor: pointer;
+  transition: background 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.15s var(--ease);
+}
+.icon-btn:hover { border-color: var(--navy-900); transform: translateY(-1px); }
+.icon-btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.icon-btn .ic-sun { display: none; }
+.lang-btn { width: auto; min-width: 42px; padding: 0 0.7rem; font-family: var(--font-body); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.02em; }
+
+.nav-links a.active { color: var(--navy-900); }
+.nav-links a.active::after { width: 100%; }
+
+.to-top {
+  position: fixed;
+  right: 1.25rem; bottom: 1.25rem;
+  z-index: 90;
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--white);
+  color: var(--navy-900);
+  border: 1.5px solid var(--slate-300);
+  box-shadow: var(--sh-md);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(12px) scale(0.9);
+  pointer-events: none;
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease), border-color 0.2s var(--ease);
+}
+.to-top.show { opacity: 1; transform: none; pointer-events: auto; }
+.to-top:hover { transform: translateY(-2px); border-color: var(--navy-900); }
+.to-top svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ============================================================
+   Dark theme (additive override layer)
+   ============================================================ */
+[data-theme="dark"] {
+  --bg: #0B1120;
+  --bg-alt: #0F172A;
+  --text: #E6EAF2;
+  --text-soft: #AEB7C7;
+  --text-mute: #828DA3;
+  --border: rgba(255, 255, 255, 0.10);
+}
+[data-theme="dark"] body { background: var(--bg); color: var(--text); }
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4 { color: var(--text); }
+
+/* Nav */
+[data-theme="dark"] #nav { background: rgba(11, 17, 32, 0.82); border-bottom-color: transparent; }
+[data-theme="dark"] #nav.scrolled { border-bottom-color: var(--border); }
+[data-theme="dark"] .brand { color: var(--text); }
+[data-theme="dark"] .brand-soft { color: var(--text-mute); }
+[data-theme="dark"] .nav-links a { color: var(--text-soft); }
+[data-theme="dark"] .nav-links a:hover, [data-theme="dark"] .nav-links a.active { color: var(--text); }
+[data-theme="dark"] .icon-btn, [data-theme="dark"] .nav-toggle { background: var(--bg-alt); border-color: var(--border); color: var(--text); }
+[data-theme="dark"] .icon-btn:hover, [data-theme="dark"] .to-top:hover { border-color: var(--text-soft); }
+[data-theme="dark"] .nav-toggle span { background: var(--text); }
+[data-theme="dark"] .icon-btn .ic-sun { display: block; }
+[data-theme="dark"] .icon-btn .ic-moon { display: none; }
+[data-theme="dark"] .mobile-menu { background: rgba(11, 17, 32, 0.97); border-bottom-color: var(--border); }
+[data-theme="dark"] .mobile-menu a { color: var(--text-soft); border-bottom-color: var(--border); }
+
+/* Section backgrounds */
+[data-theme="dark"] #hero {
+  background:
+    radial-gradient(ellipse 80% 50% at 75% 0%, rgba(212, 168, 87, 0.10) 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
+}
+[data-theme="dark"] #trusted, [data-theme="dark"] #services, [data-theme="dark"] #why, [data-theme="dark"] #team { background: var(--bg); }
+[data-theme="dark"] #work, [data-theme="dark"] #process, [data-theme="dark"] #faq { background: var(--bg-alt); }
+[data-theme="dark"] #trusted { border-bottom-color: var(--border); }
+
+/* Cards & surfaces */
+[data-theme="dark"] .service-card, [data-theme="dark"] .work-card,
+[data-theme="dark"] .process-step, [data-theme="dark"] .team-card,
+[data-theme="dark"] .faq-item { background: #141F36; border-color: var(--border); }
+[data-theme="dark"] .why-card { background: #0F1A2E; border-color: var(--border); }
+[data-theme="dark"] .faq-item[open] { border-color: var(--gold-500); }
+[data-theme="dark"] .faq-item summary { color: var(--text); }
+
+/* Text helpers */
+[data-theme="dark"] .lead, [data-theme="dark"] .section-sub,
+[data-theme="dark"] .service-card p, [data-theme="dark"] .work-desc,
+[data-theme="dark"] .why-card p, [data-theme="dark"] .process-step p,
+[data-theme="dark"] .team-card > p:last-child, [data-theme="dark"] .faq-body p { color: var(--text-soft); }
+[data-theme="dark"] .work-points li { color: var(--text); }
+[data-theme="dark"] .hero-trust { border-top-color: var(--border); color: var(--text-soft); }
+
+/* Accents that need to brighten on dark */
+[data-theme="dark"] .eyebrow, [data-theme="dark"] .team-card .role { color: var(--gold-400); }
+[data-theme="dark"] #hero h1 .grad, [data-theme="dark"] .step-num { background-image: var(--gold-grad); }
+
+/* Trust strip & tags */
+[data-theme="dark"] .trust-label { color: var(--text-mute); }
+[data-theme="dark"] .trust-logos li { color: var(--text-mute); }
+[data-theme="dark"] .trust-logos li:hover { color: var(--text); }
+[data-theme="dark"] .tag { background: rgba(255, 255, 255, 0.06); color: var(--text); border-color: var(--border); }
+[data-theme="dark"] .work-type { color: var(--text-mute); }
+
+/* Icon chips */
+[data-theme="dark"] .service-icon { background: rgba(212, 168, 87, 0.14); }
+[data-theme="dark"] .service-icon svg { stroke: var(--gold-400); }
+[data-theme="dark"] .work-logo.vv { background: rgba(212, 168, 87, 0.16); color: var(--gold-300); }
+[data-theme="dark"] .work-logo.kp { background: rgba(255, 255, 255, 0.07); color: var(--text); }
+
+/* Buttons */
+[data-theme="dark"] .btn-ghost { background: transparent; color: var(--text); border-color: var(--border); }
+[data-theme="dark"] .btn-ghost:hover { background: rgba(255, 255, 255, 0.06); border-color: var(--text-soft); }
+
+/* Back-to-top */
+[data-theme="dark"] .to-top { background: var(--bg-alt); border-color: var(--border); color: var(--text); }

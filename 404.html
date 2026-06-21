@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') {
+          t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  <title>Page not found — Vindex Software</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <style>
+    .error-wrap {
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 1.25rem;
+      padding: 4rem 1.5rem;
+    }
+    .error-code {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: clamp(4.5rem, 18vw, 9rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      background: var(--gold-grad-text);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    [data-theme="dark"] .error-code { background-image: var(--gold-grad); }
+    .error-wrap h1 { font-size: clamp(1.5rem, 4vw, 2.25rem); }
+    .error-wrap p { color: var(--text-soft); max-width: 44ch; font-size: 1.05rem; }
+    .error-brand { display: inline-flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; }
+    .error-brand img { height: 40px; width: auto; }
+  </style>
+</head>
+
+<body>
+  <main class="container error-wrap">
+    <a href="/" class="error-brand" aria-label="Vindex Software — home">
+      <picture>
+        <source srcset="assets/logo.webp" type="image/webp" />
+        <img src="assets/logo.png" alt="" width="31" height="40" aria-hidden="true" />
+      </picture>
+    </a>
+    <p class="eyebrow"><span class="eyebrow-dot"></span>Error 404</p>
+    <div class="error-code">404</div>
+    <h1>This page took a wrong turn</h1>
+    <p>The page you're looking for doesn't exist or may have moved. Let's get you back on track.</p>
+    <div class="hero-actions" style="justify-content:center;">
+      <a href="/" class="btn btn-primary btn-lg">Back to home</a>
+      <a href="/#contact" class="btn btn-ghost btn-lg">Get in touch</a>
+    </div>
+  </main>
+</body>
+
+</html>
