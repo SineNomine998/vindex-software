@@ -1,14 +1,7 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
   "name": "vindexsoft",
-  "compatibility_date": "2026-06-20",
-  "observability": {
-    "enabled": true
-  },
+  "compatibility_date": "2026-06-21",
   "assets": {
     "directory": "."
-  },
-  "compatibility_flags": [
-    "nodejs_compat"
-  ]
+  }
 }
