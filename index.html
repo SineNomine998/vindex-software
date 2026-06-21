@@ -4,352 +4,603 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vindex Software – We Build Custom Software</title>
+  <title>Vindex Software — Custom Software for Growing Businesses</title>
   <meta name="description"
-    content="Vindex Software builds custom mobile apps, webshops, and management systems for local businesses." />
+    content="Vindex Software is a custom software studio building mobile apps, websites, webshops, and management systems for local businesses. Fixed-price projects, no hidden fees, and you own 100% of the code." />
+  <meta name="theme-color" content="#0F172A" />
+  <link rel="canonical" href="https://vindexsoft.com/" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Vindex Software — Custom Software for Growing Businesses" />
+  <meta property="og:description"
+    content="Custom mobile apps, websites, webshops, and management systems for local businesses. Fixed-price, transparent, and built to last." />
+  <meta property="og:url" content="https://vindexsoft.com/" />
+  <meta property="og:site_name" content="Vindex Software" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/png" href="assets/vindex-mark.png" />
+
+  <!-- Fonts: Lexend (headings, built for readability & trust) + Inter (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Structured data: helps search engines & AI assistants trust and describe the business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Vindex Software",
+    "url": "https://vindexsoft.com",
+    "email": "hello@vindex.software",
+    "description": "Custom software studio building mobile apps, websites, webshops, and management systems for local businesses.",
+    "logo": "https://vindexsoft.com/assets/vindex-mark.png",
+    "areaServed": "Netherlands",
+    "knowsAbout": ["Flutter app development", "Web development", "E-commerce", "Business management software", "AI solutions"]
+  }
+  </script>
 </head>
 
 <body>
+  <a href="#main" class="skip-link">Skip to content</a>
 
-  <!-- ─── Nav ─── -->
-  <nav id="nav">
+  <!-- ─────────────────────────  Nav  ───────────────────────── -->
+  <header id="nav">
     <div class="container nav-inner">
-      <a href="#hero" class="brand" aria-label="Vindex Software home">
-        <img src="assets/vindex-mark.png" alt="Vindex Software" class="brand-mark" />
-        Vindex Software
+      <a href="#hero" class="brand" aria-label="Vindex Software — home">
+        <img src="assets/vindex-mark.png" alt="" class="brand-mark" aria-hidden="true" />
+        <span>Vindex<span class="brand-soft"> Software</span></span>
       </a>
-      <ul class="nav-links">
-        <li><a href="#clients">Our Work</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#team">Team</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <a href="mailto:hello@vindex.software" class="nav-cta">Get in touch</a>
-    </div>
-  </nav>
 
-  <!-- ─── Hero ─── -->
-  <section id="hero">
-    <div class="container hero-container">
-      <div class="hero-copy">
-        <p class="hero-eyebrow">Custom software studio</p>
-        <h1>We build custom software<br /><span class="highlight">for your business.</span></h1>
-        <p class="lead">
-          From Flutter mobile apps to webshops and management systems — we deliver tailored digital
-          solutions that help your business grow, without the enterprise price tag.
-        </p>
-        <div class="hero-actions">
-          <a href="#clients" class="btn btn-primary">See our work</a>
-          <a href="mailto:hello@vindex.software" class="btn btn-ghost">Talk to us</a>
-        </div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#work">Our Work</a>
+        <a href="#why">Why Vindex</a>
+        <a href="#team">Team</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-primary btn-sm">Start a project</a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
+    </div>
 
-      <div class="hero-visual">
-        <!-- Video / showreel placeholder – swap src for a real video when ready -->
-        <div class="video-placeholder" id="video-placeholder" role="img" aria-label="Showreel coming soon">
-          <div class="video-bg-gradient"></div>
-          <div class="video-center">
-            <button class="play-btn" aria-label="Play showreel">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </button>
-            <p class="video-label">Showreel coming soon</p>
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <a href="#services">Services</a>
+      <a href="#work">Our Work</a>
+      <a href="#why">Why Vindex</a>
+      <a href="#team">Team</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="btn btn-primary">Start a project</a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ─────────────────────────  Hero  ───────────────────────── -->
+    <section id="hero">
+      <div class="container hero-container">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span>Custom software studio · Netherlands</p>
+          <h1>Software that fits your business —<span class="grad"> not the other way around.</span></h1>
+          <p class="lead">
+            We design and build custom mobile apps, websites, webshops, and management systems for
+            growing businesses. Fixed-price projects, no jargon, and you own 100&nbsp;% of the code.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary btn-lg">Start a project</a>
+            <a href="#work" class="btn btn-ghost btn-lg">See our work</a>
           </div>
+
+          <ul class="hero-trust" aria-label="What you can count on">
+            <li>
+              <svg class="ic-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7" /></svg>
+              Fixed price, no surprises
+            </li>
+            <li>
+              <svg class="ic-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7" /></svg>
+              You own the code
+            </li>
+            <li>
+              <svg class="ic-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7" /></svg>
+              Direct line to the developers
+            </li>
+          </ul>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ─── Clients / Portfolio ─── -->
-  <section id="clients">
-    <div class="container">
-      <p class="section-eyebrow">Previous clients</p>
-      <h2 class="section-title">Work we're proud of</h2>
-
-      <div class="clients-grid">
-
-        <!-- VredeVeranda -->
-        <div class="client-card featured reveal">
-          <div class="client-header">
-            <div class="client-logo vv">VV</div>
-            <div class="client-meta">
-              <h3>VredeVeranda</h3>
-              <p class="client-type">Flutter App &amp; Webshop</p>
+        <!-- Polished product mockup (CSS) -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="mock-dash">
+            <div class="mock-dash-top">
+              <span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span>
+              <div class="mock-pill"></div>
+            </div>
+            <div class="mock-dash-body">
+              <div class="mock-kpis">
+                <div class="mock-kpi"><span class="kpi-num">+38%</span><span class="kpi-lbl">Bookings</span></div>
+                <div class="mock-kpi"><span class="kpi-num">1.2k</span><span class="kpi-lbl">Customers</span></div>
+                <div class="mock-kpi"><span class="kpi-num">€24k</span><span class="kpi-lbl">Revenue</span></div>
+              </div>
+              <div class="mock-chart">
+                <span style="height:42%"></span><span style="height:58%"></span><span style="height:48%"></span>
+                <span style="height:72%"></span><span style="height:64%"></span><span style="height:88%"></span>
+                <span style="height:80%"></span>
+              </div>
             </div>
           </div>
-          <p class="client-desc">
-            We built VredeVeranda a complete customer process application in Flutter — streamlining
-            bookings, customer records, and internal workflows. On top of that, we delivered a
-            fully custom webshop so they could sell their products online with ease.
-          </p>
-          <div class="screenshot-wrapper">
-            <div class="screenshot-track" id="vv-track">
-              <!-- Screen 1 -->
-              <div class="screenshot-slide active">
-                <div class="phone-mockup">
-                  <div class="phone-notch"></div>
-                  <div class="phone-screen s1">
-                    <div class="mock-topbar">VredeVeranda</div>
-                    <div class="mock-list">
-                      <div class="mock-row"></div>
-                      <div class="mock-row short"></div>
-                      <div class="mock-row"></div>
-                      <div class="mock-row short"></div>
-                      <div class="mock-row"></div>
+          <div class="mock-phone">
+            <div class="mock-phone-notch"></div>
+            <div class="mock-phone-screen">
+              <div class="mp-bar"></div>
+              <div class="mp-card"></div>
+              <div class="mp-row"></div>
+              <div class="mp-row short"></div>
+              <div class="mp-row"></div>
+            </div>
+          </div>
+          <div class="mock-badge">
+            <svg class="ic-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7" /></svg>
+            Shipped on time
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────  Trust strip  ───────────────────────── -->
+    <section id="trusted" aria-label="Businesses we work with">
+      <div class="container">
+        <p class="trust-label">Trusted by businesses that depend on their software every day</p>
+        <ul class="trust-logos">
+          <li>VredeVeranda</li>
+          <li>Capan's Barber Shop</li>
+          <li>Kennispoint</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────  Services  ───────────────────────── -->
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow"><span class="eyebrow-dot"></span>What we build</p>
+          <h2 class="section-title">One studio for every digital need</h2>
+          <p class="section-sub">From the first idea to a product your customers love — we handle the design, the
+            engineering, and the support, so you don't have to juggle five different agencies.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3" /><path d="M11 18h2" /></svg>
+            </div>
+            <h3>Mobile Apps</h3>
+            <p>Fast, beautiful iOS &amp; Android apps built in Flutter — designed around how your team and customers
+              actually work.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="14" rx="2" /><path d="M8 21h8M12 18v3" /></svg>
+            </div>
+            <h3>Websites &amp; Webshops</h3>
+            <p>Modern, mobile-first websites and online stores — optimised for conversions and easy for new customers
+              to find on Google.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H7a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2" /><rect x="9" y="2.5" width="6" height="4" rx="1" /><path d="M9 12h6M9 16h4" /></svg>
+            </div>
+            <h3>Management Systems</h3>
+            <p>Custom software for scheduling, payments, customer records, and internal processes — built exactly the
+              way your business runs.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 7.5 12 12l9-4.5L12 3Z" /><path d="M3 12l9 4.5L21 12M3 16.5 12 21l9-4.5" /></svg>
+            </div>
+            <h3>AI &amp; Data Solutions</h3>
+            <p>Smart dashboards, automation, and AI that's genuinely useful at small-business scale — helping you decide
+              faster with less guesswork.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────  Work / Case studies  ───────────────────────── -->
+    <section id="work">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow"><span class="eyebrow-dot"></span>Selected work</p>
+          <h2 class="section-title">Real products, real businesses</h2>
+          <p class="section-sub">A few of the projects we've designed, built, and continue to support.</p>
+        </div>
+
+        <div class="work-grid">
+
+          <!-- VredeVeranda (featured) -->
+          <article class="work-card featured reveal">
+            <div class="work-info">
+              <div class="work-header">
+                <div class="work-logo vv">VV</div>
+                <div>
+                  <h3>VredeVeranda</h3>
+                  <p class="work-type">Flutter app · Custom webshop</p>
+                </div>
+              </div>
+              <p class="work-desc">
+                We built VredeVeranda a complete customer-process application in Flutter — streamlining bookings,
+                customer records, and internal workflows in one place. Then we delivered a fully custom webshop so
+                they could sell their products online with ease.
+              </p>
+              <ul class="work-points">
+                <li><svg class="ic-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7" /></svg>Bookings &amp; customer management in one app</li>
+                <li><svg class="ic-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7" /></svg>Custom-built online webshop</li>
+                <li><svg class="ic-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7" /></svg>One streamlined internal workflow</li>
+              </ul>
+            </div>
+
+            <div class="screenshot-wrapper">
+              <div class="screenshot-track" id="vv-track">
+                <div class="screenshot-slide active">
+                  <div class="phone-mockup">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen s1">
+                      <div class="mock-topbar">VredeVeranda</div>
+                      <div class="mock-list">
+                        <div class="mock-row"></div><div class="mock-row short"></div><div class="mock-row"></div>
+                        <div class="mock-row short"></div><div class="mock-row"></div>
+                      </div>
                     </div>
                   </div>
+                  <p class="slide-caption">Customer overview</p>
                 </div>
-                <p class="slide-caption">Customer overview</p>
-              </div>
-              <!-- Screen 2 -->
-              <div class="screenshot-slide">
-                <div class="phone-mockup">
-                  <div class="phone-notch"></div>
-                  <div class="phone-screen s2">
-                    <div class="mock-topbar">Bookings</div>
-                    <div class="mock-calendar">
-                      <div class="cal-row"><div class="cal-cell active"></div><div class="cal-cell"></div><div class="cal-cell"></div><div class="cal-cell"></div><div class="cal-cell"></div><div class="cal-cell"></div><div class="cal-cell"></div></div>
-                      <div class="cal-row"><div class="cal-cell"></div><div class="cal-cell"></div><div class="cal-cell dot"></div><div class="cal-cell"></div><div class="cal-cell dot"></div><div class="cal-cell"></div><div class="cal-cell"></div></div>
-                      <div class="cal-row"><div class="cal-cell"></div><div class="cal-cell dot"></div><div class="cal-cell"></div><div class="cal-cell"></div><div class="cal-cell"></div><div class="cal-cell dot"></div><div class="cal-cell"></div></div>
-                    </div>
-                    <div class="mock-list">
-                      <div class="mock-row short"></div>
-                      <div class="mock-row"></div>
+                <div class="screenshot-slide">
+                  <div class="phone-mockup">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen s2">
+                      <div class="mock-topbar">Bookings</div>
+                      <div class="mock-calendar">
+                        <div class="cal-row"><div class="cal-cell active"></div><div class="cal-cell"></div><div class="cal-cell"></div><div class="cal-cell"></div><div class="cal-cell"></div><div class="cal-cell"></div><div class="cal-cell"></div></div>
+                        <div class="cal-row"><div class="cal-cell"></div><div class="cal-cell"></div><div class="cal-cell dot"></div><div class="cal-cell"></div><div class="cal-cell dot"></div><div class="cal-cell"></div><div class="cal-cell"></div></div>
+                        <div class="cal-row"><div class="cal-cell"></div><div class="cal-cell dot"></div><div class="cal-cell"></div><div class="cal-cell"></div><div class="cal-cell"></div><div class="cal-cell dot"></div><div class="cal-cell"></div></div>
+                      </div>
+                      <div class="mock-list"><div class="mock-row short"></div><div class="mock-row"></div></div>
                     </div>
                   </div>
+                  <p class="slide-caption">Booking management</p>
                 </div>
-                <p class="slide-caption">Booking management</p>
-              </div>
-              <!-- Screen 3 -->
-              <div class="screenshot-slide">
-                <div class="phone-mockup">
-                  <div class="phone-notch"></div>
-                  <div class="phone-screen s3">
-                    <div class="mock-topbar">Webshop</div>
-                    <div class="mock-product-grid">
-                      <div class="mock-product"></div>
-                      <div class="mock-product"></div>
-                      <div class="mock-product"></div>
-                      <div class="mock-product"></div>
+                <div class="screenshot-slide">
+                  <div class="phone-mockup">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen s3">
+                      <div class="mock-topbar">Webshop</div>
+                      <div class="mock-product-grid">
+                        <div class="mock-product"></div><div class="mock-product"></div>
+                        <div class="mock-product"></div><div class="mock-product"></div>
+                      </div>
                     </div>
                   </div>
+                  <p class="slide-caption">Online webshop</p>
                 </div>
-                <p class="slide-caption">Online webshop</p>
+              </div>
+              <div class="slider-dots">
+                <button class="slider-dot active" data-index="0" data-track="vv-track" aria-label="Screen 1: Customer overview"></button>
+                <button class="slider-dot" data-index="1" data-track="vv-track" aria-label="Screen 2: Booking management"></button>
+                <button class="slider-dot" data-index="2" data-track="vv-track" aria-label="Screen 3: Online webshop"></button>
               </div>
             </div>
+          </article>
 
-            <div class="slider-dots">
-              <button class="slider-dot active" data-index="0" data-track="vv-track" aria-label="Screen 1"></button>
-              <button class="slider-dot" data-index="1" data-track="vv-track" aria-label="Screen 2"></button>
-              <button class="slider-dot" data-index="2" data-track="vv-track" aria-label="Screen 3"></button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Capan's Barber Shop -->
-        <div class="client-card reveal">
-          <div class="client-header">
-            <div class="client-logo cb">CB</div>
-            <div class="client-meta">
-              <h3>Capan's Barber Shop</h3>
-              <p class="client-type">Website</p>
-            </div>
-          </div>
-          <p class="client-desc">
-            A sleek, mobile-first website for Capan's Barber Shop — showcasing their services,
-            team, and prices while letting customers book appointments online.
-            Optimised for local search so new customers can find them easily.
-          </p>
-          <div class="browser-mockup">
-            <div class="browser-chrome">
-              <div class="browser-dots">
-                <span></span><span></span><span></span>
-              </div>
-              <div class="browser-url-bar">capansbarber.com</div>
-            </div>
-            <div class="browser-body">
-              <div class="site-hero">
-                <div class="site-title">Capan's Barber Shop</div>
-                <div class="site-sub">Premium cuts. Real style.</div>
-                <div class="site-btn">Book now</div>
-              </div>
-              <div class="site-cards">
-                <div class="site-card"></div>
-                <div class="site-card"></div>
-                <div class="site-card"></div>
+          <!-- Capan's Barber Shop -->
+          <article class="work-card reveal">
+            <div class="work-header">
+              <div class="work-logo cb">CB</div>
+              <div>
+                <h3>Capan's Barber Shop</h3>
+                <p class="work-type">Website</p>
               </div>
             </div>
-          </div>
-        </div>
-
-        <!-- Kennispoint -->
-        <div class="client-card reveal">
-          <div class="client-header">
-            <div class="client-logo kp">KP</div>
-            <div class="client-meta">
-              <h3>Kennispoint</h3>
-              <p class="client-type">Student &amp; Teacher Management App</p>
+            <p class="work-desc">
+              A sleek, mobile-first website showcasing their services, team, and prices — and letting customers book
+              appointments online. Optimised for local search so new customers find them easily.
+            </p>
+            <div class="browser-mockup">
+              <div class="browser-chrome">
+                <div class="browser-dots"><span></span><span></span><span></span></div>
+                <div class="browser-url-bar">capansbarber.com</div>
+              </div>
+              <div class="browser-body">
+                <div class="site-hero">
+                  <div class="site-title">Capan's Barber Shop</div>
+                  <div class="site-sub">Premium cuts. Real style.</div>
+                  <div class="site-btn">Book now</div>
+                </div>
+                <div class="site-cards"><div class="site-card"></div><div class="site-card"></div><div class="site-card"></div></div>
+              </div>
             </div>
-          </div>
-          <p class="client-desc">
-            A comprehensive management platform for Kennispoint covering homework tracking,
-            scheduling, payment management, and progress monitoring — for both students and
-            teachers in one unified app.
-          </p>
-          <div class="feature-tags">
-            <span class="tag">Homework tracking</span>
-            <span class="tag">Scheduling</span>
-            <span class="tag">Payment tracking</span>
-            <span class="tag">Student records</span>
-            <span class="tag">Teacher portal</span>
-            <span class="tag">Progress reports</span>
-            <span class="tag">Notifications</span>
-          </div>
-        </div>
+          </article>
 
-      </div>
-    </div>
-  </section>
+          <!-- Kennispoint -->
+          <article class="work-card reveal">
+            <div class="work-header">
+              <div class="work-logo kp">KP</div>
+              <div>
+                <h3>Kennispoint</h3>
+                <p class="work-type">Student &amp; teacher management</p>
+              </div>
+            </div>
+            <p class="work-desc">
+              A comprehensive platform covering homework tracking, scheduling, payments, and progress monitoring — for
+              both students and teachers, all in one unified app.
+            </p>
+            <div class="feature-tags">
+              <span class="tag">Homework tracking</span>
+              <span class="tag">Scheduling</span>
+              <span class="tag">Payment tracking</span>
+              <span class="tag">Student records</span>
+              <span class="tag">Teacher portal</span>
+              <span class="tag">Progress reports</span>
+              <span class="tag">Notifications</span>
+            </div>
+          </article>
 
-  <!-- ─── Services ─── -->
-  <section id="services">
-    <div class="container">
-      <p class="section-eyebrow">What we build</p>
-      <h2 class="section-title">Custom software for every need</h2>
-      <div class="services-grid">
-
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <rect x="5" y="2" width="14" height="20" rx="2" stroke="#1A7A4A" stroke-width="1.5" />
-              <path d="M9 18h6" stroke="#1A7A4A" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-          </div>
-          <h3>Mobile Apps</h3>
-          <p>Native and cross-platform apps in Flutter for iOS and Android. Beautiful, fast, and built around how your team actually works.</p>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <rect x="2" y="3" width="20" height="14" rx="2" stroke="#1A7A4A" stroke-width="1.5" />
-              <path d="M8 21h8M12 17v4" stroke="#1A7A4A" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-          </div>
-          <h3>Websites &amp; Webshops</h3>
-          <p>Fast, modern websites and e-commerce stores. Mobile-first design, optimised for conversions and local search engines.</p>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" stroke="#1A7A4A" stroke-width="1.5" />
-              <rect x="9" y="3" width="6" height="4" rx="1" stroke="#1A7A4A" stroke-width="1.5" />
-              <path d="M9 12h6M9 16h4" stroke="#1A7A4A" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-          </div>
-          <h3>Management Systems</h3>
-          <p>Custom business software for scheduling, payments, customer management, and internal processes — built exactly how you need it.</p>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#1A7A4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </div>
-          <h3>AI &amp; Data Solutions</h3>
-          <p>Integrate AI into your business: smart dashboards, automation, and data insights that help you make better decisions, faster.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── Process ─── -->
-  <section id="process">
-    <div class="container">
-      <p class="section-eyebrow">How we work</p>
-      <h2 class="section-title">From idea to shipped product</h2>
-      <div class="process-grid">
-        <div class="process-step reveal">
-          <div class="step-num">01</div>
-          <h3>Discover</h3>
-          <p>No demos, no jargon. We start with a conversation to understand your business and define the right problem to solve.</p>
-        </div>
-        <div class="process-step reveal">
-          <div class="step-num">02</div>
-          <h3>Plan</h3>
-          <p>A clear proposal with a fixed timeline and fixed cost. No surprises, no hidden fees. You know exactly what you're getting.</p>
-        </div>
-        <div class="process-step reveal">
-          <div class="step-num">03</div>
-          <h3>Build</h3>
-          <p>We build iteratively and show you working software early. Your feedback shapes every stage — not just at the end.</p>
-        </div>
-        <div class="process-step reveal">
-          <div class="step-num">04</div>
-          <h3>Launch &amp; Support</h3>
-          <p>You own it outright. We stay available for support, updates, and future work — always on your terms.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ─── Team ─── -->
-  <section id="team">
-    <div class="container">
-      <p class="section-eyebrow">The team</p>
-      <h2 class="section-title">Built by people who care</h2>
-      <div class="team-grid">
-        <div class="team-card reveal">
-          <div class="avatar">Y</div>
-          <h3>Yusuf</h3>
-          <p class="role">Software Engineering</p>
-          <p>CS&amp;E student focused on backend systems and scalable architecture. Believes good software should feel invisible.</p>
+    <!-- ─────────────────────────  Why Vindex (guarantees)  ───────────────────────── -->
+    <section id="why">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow"><span class="eyebrow-dot"></span>Why Vindex</p>
+          <h2 class="section-title">What you can count on</h2>
+          <p class="section-sub">Working with a software studio shouldn't feel like a gamble. Here's what's true on
+            every project we take on.</p>
         </div>
-        <div class="team-card reveal">
-          <div class="avatar">O</div>
-          <h3>Oktay</h3>
-          <p class="role">Data Science &amp; AI</p>
-          <p>Specialist in applied machine learning and making AI actually useful at the small-business scale.</p>
-        </div>
-        <div class="team-card reveal">
-          <div class="avatar">E</div>
-          <h3>Enes</h3>
-          <p class="role">Software Engineering</p>
-          <p>Full-stack developer with a passion for product design and human-centred interfaces.</p>
+
+        <div class="why-grid">
+          <article class="why-card reveal">
+            <div class="why-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V5l-8-3Z" /><path d="m9 12 2 2 4-4" /></svg></div>
+            <h3>Fixed price, no surprises</h3>
+            <p>A clear proposal with a fixed timeline and fixed cost before we start. No hidden fees, no creeping invoices.</p>
+          </article>
+          <article class="why-card reveal">
+            <div class="why-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 18 22 12 16 6M8 6 2 12l6 6" /></svg></div>
+            <h3>You own 100% of the code</h3>
+            <p>When we hand over, it's yours — outright. No lock-in, no leases, no holding your software hostage.</p>
+          </article>
+          <article class="why-card reveal">
+            <div class="why-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z" /></svg></div>
+            <h3>Direct line to the developers</h3>
+            <p>You talk to the people building your software — not a call centre. No jargon, no account-manager telephone game.</p>
+          </article>
+          <article class="why-card reveal">
+            <div class="why-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v4l3 3" /><circle cx="12" cy="12" r="9" /></svg></div>
+            <h3>Built early, shown often</h3>
+            <p>You see working software early and shape it as we go — your feedback guides every stage, not just the end.</p>
+          </article>
+          <article class="why-card reveal">
+            <div class="why-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7 9 18l-5-5" /></svg></div>
+            <h3>Support after launch</h3>
+            <p>We stay available for updates, fixes, and future work — always on your terms, never on a forced contract.</p>
+          </article>
+          <article class="why-card reveal">
+            <div class="why-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20" /><circle cx="12" cy="12" r="4" /></svg></div>
+            <h3>Made for your scale</h3>
+            <p>Powerful software without the enterprise price tag — right-sized for local and growing businesses.</p>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ─── Contact ─── -->
-  <section id="contact">
-    <div class="container contact-inner">
-      <h2 class="reveal">Ready to build something?</h2>
-      <p class="contact-lead reveal">Tell us about your project — no commitment, just a conversation.</p>
-      <a href="mailto:hello@vindex.software" class="btn btn-primary btn-large reveal">hello@vindex.software</a>
-    </div>
-  </section>
+    <!-- ─────────────────────────  Process  ───────────────────────── -->
+    <section id="process">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow"><span class="eyebrow-dot"></span>How we work</p>
+          <h2 class="section-title">From idea to shipped product</h2>
+          <p class="section-sub">A simple, transparent process — you always know where things stand.</p>
+        </div>
 
-  <!-- ─── Footer ─── -->
+        <ol class="process-grid">
+          <li class="process-step reveal">
+            <div class="step-num">01</div>
+            <h3>Discover</h3>
+            <p>No demos, no jargon. We start with a conversation to understand your business and define the right problem
+              to solve.</p>
+          </li>
+          <li class="process-step reveal">
+            <div class="step-num">02</div>
+            <h3>Plan</h3>
+            <p>A clear proposal with a fixed timeline and fixed cost. You know exactly what you're getting before any
+              work begins.</p>
+          </li>
+          <li class="process-step reveal">
+            <div class="step-num">03</div>
+            <h3>Build</h3>
+            <p>We build iteratively and show you working software early. Your feedback shapes every stage along the way.</p>
+          </li>
+          <li class="process-step reveal">
+            <div class="step-num">04</div>
+            <h3>Launch &amp; support</h3>
+            <p>You own it outright. We stay available for support, updates, and future work — always on your terms.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────  Team  ───────────────────────── -->
+    <section id="team">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow"><span class="eyebrow-dot"></span>The team</p>
+          <h2 class="section-title">Built by people who care</h2>
+          <p class="section-sub">A small, focused team — the same people you talk to are the ones who build your software.</p>
+        </div>
+
+        <div class="team-grid">
+          <article class="team-card reveal">
+            <div class="avatar">Y</div>
+            <h3>Yusuf</h3>
+            <p class="role">Software Engineering</p>
+            <p>Focused on backend systems and scalable architecture. Believes good software should feel invisible.</p>
+          </article>
+          <article class="team-card reveal">
+            <div class="avatar">O</div>
+            <h3>Oktay</h3>
+            <p class="role">Data Science &amp; AI</p>
+            <p>Specialist in applied machine learning and making AI genuinely useful at the small-business scale.</p>
+          </article>
+          <article class="team-card reveal">
+            <div class="avatar">E</div>
+            <h3>Enes</h3>
+            <p class="role">Software Engineering</p>
+            <p>Full-stack developer with a passion for product design and human-centred interfaces.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────  FAQ  ───────────────────────── -->
+    <section id="faq">
+      <div class="container faq-container">
+        <div class="section-head">
+          <p class="eyebrow"><span class="eyebrow-dot"></span>Questions &amp; answers</p>
+          <h2 class="section-title">Everything you might be wondering</h2>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item reveal">
+            <summary>How much does a project cost?<span class="faq-chev" aria-hidden="true"></span></summary>
+            <div class="faq-body"><p>Every project is quoted up front with a fixed price, so there are no surprises. The
+              cost depends on scope — a focused website is very different from a full management system. The first
+              conversation is free, and so is the proposal.</p></div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>How long does it take?<span class="faq-chev" aria-hidden="true"></span></summary>
+            <div class="faq-body"><p>It depends on what we're building, but you'll get a clear timeline in your proposal
+              before we start. We build iteratively and show you working software early, so you're never left wondering
+              about progress.</p></div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Do I actually own the software?<span class="faq-chev" aria-hidden="true"></span></summary>
+            <div class="faq-body"><p>Yes — 100&nbsp;%. When we hand over, the code and everything around it is yours
+              outright. No lock-in, no leasing, no monthly licence just to keep using what you paid for.</p></div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>What if I need changes after launch?<span class="faq-chev" aria-hidden="true"></span></summary>
+            <div class="faq-body"><p>We stay available for updates, fixes, and new features whenever you need them —
+              always on your terms. There's no forced support contract; you reach out when something comes up.</p></div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Where are you based?<span class="faq-chev" aria-hidden="true"></span></summary>
+            <div class="faq-body"><p>We're a Netherlands-based studio working with local and growing businesses. We're
+              happy to meet in person where practical, and work comfortably online too.</p></div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>How do we get started?<span class="faq-chev" aria-hidden="true"></span></summary>
+            <div class="faq-body"><p>Just send us a message describing your idea — no commitment, just a conversation.
+              We'll get back to you within one business day to talk through what you need.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────  Contact  ───────────────────────── -->
+    <section id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <h2>Ready to build something?</h2>
+          <p class="contact-lead">Tell us about your project — no commitment, just a conversation. We reply within one
+            business day.</p>
+
+          <ul class="contact-points">
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="ic-line"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg>
+              <a href="mailto:hello@vindex.software">hello@vindex.software</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="ic-line"><circle cx="12" cy="10" r="3" /><path d="M12 2a8 8 0 0 0-8 8c0 5 8 12 8 12s8-7 8-12a8 8 0 0 0-8-8Z" /></svg>
+              Based in the Netherlands
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="ic-line"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
+              Replies within 1 business day
+            </li>
+          </ul>
+        </div>
+
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="field">
+            <label for="cf-name">Name</label>
+            <input type="text" id="cf-name" name="name" autocomplete="name" required placeholder="Your name" />
+          </div>
+          <div class="field">
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="email" autocomplete="email" required placeholder="you@business.com" />
+          </div>
+          <div class="field">
+            <label for="cf-type">What can we help with?</label>
+            <select id="cf-type" name="type">
+              <option>Mobile app</option>
+              <option>Website or webshop</option>
+              <option>Management system</option>
+              <option>AI &amp; data</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cf-msg">Project details</label>
+            <textarea id="cf-msg" name="message" rows="4" required placeholder="A sentence or two about what you have in mind."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Send message</button>
+          <p class="form-note" id="form-note" role="status" aria-live="polite">This opens your email app with the details
+            ready to send.</p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─────────────────────────  Footer  ───────────────────────── -->
   <footer>
     <div class="container footer-inner">
-      <span>© 2026 Vindex Software. All rights reserved.</span>
-      <nav class="footer-nav" aria-label="Footer navigation">
-        <a href="#clients">Our Work</a>
+      <div class="footer-brand">
+        <a href="#hero" class="brand">
+          <img src="assets/vindex-mark.png" alt="" class="brand-mark" aria-hidden="true" />
+          <span>Vindex<span class="brand-soft"> Software</span></span>
+        </a>
+        <p>Custom software for growing businesses. Designed, built, and supported in the Netherlands.</p>
+      </div>
+
+      <nav class="footer-col" aria-label="Footer">
+        <h4>Explore</h4>
         <a href="#services">Services</a>
+        <a href="#work">Our Work</a>
+        <a href="#why">Why Vindex</a>
         <a href="#team">Team</a>
-        <a href="mailto:hello@vindex.software">Contact</a>
+        <a href="#faq">FAQ</a>
       </nav>
+
+      <div class="footer-col">
+        <h4>Get in touch</h4>
+        <a href="mailto:hello@vindex.software">hello@vindex.software</a>
+        <a href="#contact">Start a project</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 Vindex Software. All rights reserved.</span>
+      <span class="footer-made">Built with care in the Netherlands</span>
     </div>
   </footer>
 
