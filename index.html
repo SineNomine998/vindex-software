@@ -67,7 +67,8 @@
         "logo": "https://vindexsoft.com/assets/logo.png",
         "image": "https://vindexsoft.com/assets/og-image.png",
         "areaServed": "Netherlands",
-        "knowsAbout": ["Flutter app development", "Web development", "E-commerce", "Business management software", "AI solutions"],
+        "knowsAbout": ["Flutter app development", "Web development", "E-commerce", "Business management software", "Business process automation", "AI solutions"],
+        "sameAs": ["https://www.linkedin.com/company/vindex-software"],
         "contactPoint": {
           "@type": "ContactPoint",
           "email": "hello@vindex.software",
@@ -99,8 +100,8 @@
           },
           {
             "@type": "Question",
-            "name": "Do I actually own the software?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes — 100%. When we hand over, the code and everything around it is yours outright. No lock-in, no leasing, no monthly licence just to keep using what you paid for." }
+            "name": "Is it a one-off project or a subscription?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Both are possible. Depending on what we build, we offer one-off delivery or an ongoing plan with support, updates, and hosting. We'll recommend the option that best fits your situation and budget." }
           },
           {
             "@type": "Question",
@@ -126,6 +127,7 @@
 
 <body>
   <a href="#main" class="skip-link" data-i18n="skip">Skip to content</a>
+  <div class="scroll-progress" id="scroll-progress"></div>
 
   <!-- ─────────────────────────  Nav  ───────────────────────── -->
   <header id="nav">
@@ -179,8 +181,8 @@
           <p class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="hero.eyebrow">Custom software studio · Netherlands</span></p>
           <h1><span data-i18n="hero.h1a">Software that fits your business — </span><span class="grad" data-i18n="hero.h1b">not the other way around.</span></h1>
           <p class="lead" data-i18n="hero.lead">
-            We design and build custom mobile apps, websites, webshops, and management systems for
-            growing businesses. Fixed-price projects, no jargon, and you own 100% of the code.
+            We design and build custom mobile apps, websites, webshops, and management systems — and
+            automate the digital processes behind them. Fixed price, no jargon, built around how you work.
           </p>
           <div class="hero-actions">
             <a href="#contact" class="btn btn-primary btn-lg" data-i18n="cta.start">Start a project</a>
@@ -194,7 +196,7 @@
             </li>
             <li>
               <svg class="ic-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7" /></svg>
-              <span data-i18n="hero.trust2">You own the code</span>
+              <span data-i18n="hero.trust2">Built around your business</span>
             </li>
             <li>
               <svg class="ic-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7" /></svg>
@@ -248,7 +250,79 @@
         <ul class="trust-logos">
           <li>VredeVeranda</li>
           <li>Capan's Barber Shop</li>
-          <li>Kennispoint</li>
+          <li>Kennispoint Amsterdam</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────  Friction (problems)  ───────────────────────── -->
+    <section id="problems">
+      <div class="container problems-inner">
+        <div class="section-head">
+          <p class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="problems.eyebrow">Common bottlenecks</span></p>
+          <h2 class="section-title" data-i18n="problems.title">What's quietly costing you time</h2>
+          <p class="section-sub" data-i18n="problems.sub">Most of the businesses we work with come to us with at least one of these.</p>
+        </div>
+        <ul class="problems-list">
+          <li class="pain reveal">
+            <svg class="pain-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5" /><rect x="13" y="13" width="8" height="8" rx="1.5" /><path d="M13.5 8.5 8.5 13.5" /></svg>
+            <span data-i18n="problems.p1">Your tools don't talk to each other, so the same data lives in five places.</span>
+          </li>
+          <li class="pain reveal">
+            <svg class="pain-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h16.9a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" /><path d="M12 9v4M12 17h.01" /></svg>
+            <span data-i18n="problems.p2">Too much still happens by hand — slow, repetitive, and easy to get wrong.</span>
+          </li>
+          <li class="pain reveal">
+            <svg class="pain-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.9 4.2A9 9 0 0 1 12 4c5 0 9 5 9 8a12 12 0 0 1-1.7 2.7M6.6 6.6C4 8.2 2 11 2 12c0 0 3 8 10 8a9 9 0 0 0 3.4-.6" /><path d="m2 2 20 20" /></svg>
+            <span data-i18n="problems.p3">You can't see stock, orders, and shipping in one place when it matters.</span>
+          </li>
+          <li class="pain reveal">
+            <svg class="pain-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18" /><path d="M12 3a14 14 0 0 1 4 9 14 14 0 0 1-4 9 14 14 0 0 1-4-9 14 14 0 0 1 4-9Z" /></svg>
+            <span data-i18n="problems.p4">Growing — or selling abroad — brings more chaos instead of more revenue.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────  Outcomes  ───────────────────────── -->
+    <section id="benefits">
+      <div class="container benefits-layout">
+        <div class="benefits-intro">
+          <p class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="benefits.eyebrow">What changes for you</span></p>
+          <h2 class="section-title" data-i18n="benefits.title">Software that does the heavy lifting</h2>
+          <p class="section-sub" data-i18n="benefits.sub">Custom software isn't about features — it's about giving you back time, clarity, and room to grow.</p>
+          <a href="#contact" class="btn btn-primary" data-i18n="cta.start">Start a project</a>
+        </div>
+
+        <ul class="outcomes">
+          <li class="outcome reveal">
+            <span class="outcome-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg></span>
+            <div class="outcome-text">
+              <h3 data-i18n="outcome1.title">Win back your hours</h3>
+              <p data-i18n="outcome1.desc">The repetitive, manual steps run on their own — so your team spends its time on the work only people can do.</p>
+            </div>
+          </li>
+          <li class="outcome reveal">
+            <span class="outcome-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 17H7A5 5 0 0 1 7 7h2" /><path d="M15 7h2a5 5 0 0 1 0 10h-2" /><path d="M8 12h8" /></svg></span>
+            <div class="outcome-text">
+              <h3 data-i18n="outcome2.title">Everything in sync</h3>
+              <p data-i18n="outcome2.desc">Orders, stock, customers and shipping live in one connected place — no more copying data between tools.</p>
+            </div>
+          </li>
+          <li class="outcome reveal">
+            <span class="outcome-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6" /><path d="M9 21H3v-6" /><path d="M21 3l-7 7" /><path d="M3 21l7-7" /></svg></span>
+            <div class="outcome-text">
+              <h3 data-i18n="outcome3.title">Ready for what's next</h3>
+              <p data-i18n="outcome3.desc">Built to handle more volume, extra sales channels, and new countries the moment you're ready for them.</p>
+            </div>
+          </li>
+          <li class="outcome reveal">
+            <span class="outcome-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg></span>
+            <div class="outcome-text">
+              <h3 data-i18n="outcome4.title">A partner, not a vendor</h3>
+              <p data-i18n="outcome4.desc">The same people who built it stay close — for tweaks, questions, and whatever you need down the road.</p>
+            </div>
+          </li>
         </ul>
       </div>
     </section>
@@ -422,7 +496,7 @@
             <div class="work-header">
               <div class="work-logo kp">KP</div>
               <div>
-                <h3>Kennispoint</h3>
+                <h3>Kennispoint Amsterdam</h3>
                 <p class="work-type" data-i18n="kp.type">Student &amp; teacher management</p>
               </div>
             </div>
@@ -445,6 +519,24 @@
       </div>
     </section>
 
+    <!-- ─────────────────────────  Stats band  ───────────────────────── -->
+    <section class="stats-band" aria-label="Vindex in numbers">
+      <div class="container stats-grid">
+        <div class="stat reveal">
+          <span class="stat-num" data-to="100" data-suffix="%">100%</span>
+          <span class="stat-label" data-i18n="stat.inhouse">Built in-house, end to end</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat-num" data-to="1">1</span>
+          <span class="stat-label" data-i18n="stat.reply">Business-day reply, always</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat-num" data-to="0">0</span>
+          <span class="stat-label" data-i18n="stat.fees">Hidden fees, ever</span>
+        </div>
+      </div>
+    </section>
+
     <!-- ─────────────────────────  Why Vindex (guarantees)  ───────────────────────── -->
     <section id="why">
       <div class="container">
@@ -462,9 +554,9 @@
             <p data-i18n="why1.desc">A clear proposal with a fixed timeline and fixed cost before we start. No hidden fees, no creeping invoices.</p>
           </article>
           <article class="why-card reveal">
-            <div class="why-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 18 22 12 16 6M8 6 2 12l6 6" /></svg></div>
-            <h3 data-i18n="why2.title">You own 100% of the code</h3>
-            <p data-i18n="why2.desc">When we hand over, it's yours — outright. No lock-in, no leases, no holding your software hostage.</p>
+            <div class="why-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 17 6-6 4 4 8-8" /><path d="M17 7h4v4" /></svg></div>
+            <h3 data-i18n="why2.title">Built to scale with you</h3>
+            <p data-i18n="why2.desc">Software that grows with your business — ready for more volume, new channels, and international markets.</p>
           </article>
           <article class="why-card reveal">
             <div class="why-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z" /></svg></div>
@@ -580,9 +672,9 @@
               about progress.</p></div>
           </details>
           <details class="faq-item reveal">
-            <summary><span data-i18n="faq.q3">Do I actually own the software?</span><span class="faq-chev" aria-hidden="true"></span></summary>
-            <div class="faq-body"><p data-i18n="faq.a3">Yes — 100%. When we hand over, the code and everything around it is yours
-              outright. No lock-in, no leasing, no monthly licence just to keep using what you paid for.</p></div>
+            <summary><span data-i18n="faq.q3">Is it a one-off project or a subscription?</span><span class="faq-chev" aria-hidden="true"></span></summary>
+            <div class="faq-body"><p data-i18n="faq.a3">Both are possible. Depending on what we build, we offer one-off delivery or an
+              ongoing plan with support, updates, and hosting. We'll recommend the option that best fits your situation and budget.</p></div>
           </details>
           <details class="faq-item reveal">
             <summary><span data-i18n="faq.q4">What if I need changes after launch?</span><span class="faq-chev" aria-hidden="true"></span></summary>
@@ -671,6 +763,11 @@
           <span>Vindex<span class="brand-soft"> Software</span></span>
         </a>
         <p data-i18n="footer.desc">Custom software for growing businesses. Designed, built, and supported in the Netherlands.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/vindex-software" target="_blank" rel="noopener" aria-label="Vindex Software on LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM.24 8.25h4.5V24h-4.5zM8.34 8.25h4.31v2.15h.06c.6-1.13 2.07-2.32 4.26-2.32 4.56 0 5.4 3 5.4 6.9V24h-4.5v-6.12c0-1.46-.03-3.34-2.04-3.34-2.04 0-2.35 1.59-2.35 3.23V24h-4.5z" /></svg>
+          </a>
+        </div>
       </div>
 
       <nav class="footer-col" aria-label="Footer">
@@ -693,6 +790,10 @@
       <span class="footer-made" data-i18n="footer.made">Built with care in the Netherlands</span>
     </div>
   </footer>
+
+  <a class="wa-fab" id="wa-fab" href="https://wa.me/31634578138?text=Hi%20Vindex!%20I%27d%20like%20to%20talk%20about%20a%20project." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.25-.12-1.47-.72-1.7-.8s-.4-.13-.56.12-.64.8-.79.97-.29.18-.54.06a6.7 6.7 0 0 1-2-1.23 7.5 7.5 0 0 1-1.37-1.7c-.14-.25 0-.38.11-.5l.37-.43c.12-.15.16-.25.25-.42a.45.45 0 0 0-.02-.43c-.06-.12-.55-1.34-.76-1.83s-.4-.42-.55-.43h-.47a.9.9 0 0 0-.66.3 2.75 2.75 0 0 0-.86 2.05A4.8 4.8 0 0 0 7.3 12.1a10.9 10.9 0 0 0 4.2 3.7c.59.25 1.04.4 1.4.52a3.4 3.4 0 0 0 1.55.1c.47-.07 1.47-.6 1.68-1.18s.2-1.08.14-1.18-.22-.17-.47-.29Z" /></svg>
+  </a>
 
   <button class="to-top" id="to-top" type="button" aria-label="Back to top">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 15 6-6 6 6" /></svg>

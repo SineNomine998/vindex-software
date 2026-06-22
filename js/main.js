@@ -14,16 +14,38 @@ var VX_NL = {
   'hero.eyebrow': 'Softwarestudio op maat · Nederland',
   'hero.h1a': 'Software die past bij jouw bedrijf — ',
   'hero.h1b': 'niet andersom.',
-  'hero.lead': 'We ontwerpen en bouwen mobiele apps, websites, webshops en beheersystemen op maat voor groeiende bedrijven. Vaste prijs, geen jargon, en jij wordt 100% eigenaar van de code.',
+  'hero.lead': 'We ontwerpen en bouwen mobiele apps, websites, webshops en beheersystemen op maat — en automatiseren de digitale processen erachter. Vaste prijs, geen jargon, gebouwd rond hoe jij werkt.',
   'hero.cta_work': 'Bekijk ons werk',
   'hero.trust1': 'Vaste prijs, geen verrassingen',
-  'hero.trust2': 'Jij bezit de code',
+  'hero.trust2': 'Gebouwd rond jouw bedrijf',
   'hero.trust3': 'Direct contact met de ontwikkelaars',
   'mock.bookings': 'Boekingen',
   'mock.customers': 'Klanten',
   'mock.revenue': 'Omzet',
   'mock.shipped': 'Op tijd opgeleverd',
   'trust.label': 'Vertrouwd door bedrijven die elke dag op hun software bouwen',
+  'problems.eyebrow': 'Veelvoorkomende knelpunten',
+  'problems.title': 'Wat je ongemerkt tijd kost',
+  'problems.sub': 'De meeste bedrijven waarmee we werken, komen met minstens één van deze punten bij ons.',
+  'problems.p1': 'Je tools praten niet met elkaar, dus dezelfde gegevens staan op vijf plekken.',
+  'problems.p2': 'Te veel gaat nog met de hand — traag, repetitief en foutgevoelig.',
+  'problems.p3': 'Voorraad, orders en transport zie je niet op één plek wanneer het ertoe doet.',
+  'problems.p4': 'Groeien — of verkopen in het buitenland — geeft meer chaos in plaats van meer omzet.',
+  'benefits.eyebrow': 'Wat er voor jou verandert',
+  'benefits.title': 'Software die het zware werk doet',
+  'benefits.sub': 'Software op maat draait niet om functies — maar om tijd, overzicht en ruimte om te groeien.',
+  'outcome1.title': 'Win je uren terug',
+  'outcome1.desc': 'De repetitieve, handmatige stappen lopen vanzelf — zodat je team zijn tijd besteedt aan werk dat alleen mensen kunnen doen.',
+  'outcome2.title': 'Alles in sync',
+  'outcome2.desc': 'Orders, voorraad, klanten en transport in één verbonden geheel — geen data meer overtypen tussen systemen.',
+  'outcome3.title': 'Klaar voor wat komt',
+  'outcome3.desc': 'Gebouwd voor meer volume, extra verkoopkanalen en nieuwe landen op het moment dat jij eraan toe bent.',
+  'outcome4.title': 'Een partner, geen leverancier',
+  'outcome4.desc': 'Dezelfde mensen die het bouwden blijven dichtbij — voor aanpassingen, vragen en alles wat later komt.',
+  'wa.text': 'Hoi Vindex! Ik wil graag over een project praten.',
+  'stat.inhouse': 'In-house gebouwd, van begin tot eind',
+  'stat.reply': 'Werkdag — onze reactietijd',
+  'stat.fees': 'Verborgen kosten, ooit',
   'services.eyebrow': 'Wat we bouwen',
   'services.title': 'Eén studio voor al je digitale behoeften',
   'services.sub': 'Van het eerste idee tot een product waar je klanten van houden — wij verzorgen het ontwerp, de techniek én de ondersteuning, zodat jij niet met vijf bureaus hoeft te jongleren.',
@@ -62,8 +84,8 @@ var VX_NL = {
   'why.sub': 'Werken met een softwarestudio mag geen gok zijn. Dit geldt voor elk project dat we aannemen.',
   'why1.title': 'Vaste prijs, geen verrassingen',
   'why1.desc': 'Een helder voorstel met vaste planning en vaste prijs vóór we beginnen. Geen verborgen kosten, geen oplopende facturen.',
-  'why2.title': 'Jij bezit 100% van de code',
-  'why2.desc': 'Bij oplevering is alles van jou — volledig. Geen lock-in, geen lease, geen gegijzelde software.',
+  'why2.title': 'Schaalt met je mee',
+  'why2.desc': 'Software die meegroeit met je bedrijf — klaar voor meer volume, nieuwe kanalen en internationale markten.',
   'why3.title': 'Direct contact met de ontwikkelaars',
   'why3.desc': 'Je praat met de mensen die je software bouwen — geen callcenter. Geen jargon, geen accountmanager ertussen.',
   'why4.title': 'Vroeg gebouwd, vaak getoond',
@@ -97,8 +119,8 @@ var VX_NL = {
   'faq.a1': 'Elk project krijgt vooraf een vaste prijs, dus geen verrassingen. De kosten hangen af van de omvang — een gerichte website is heel anders dan een volledig beheersysteem. Het eerste gesprek is gratis, en het voorstel ook.',
   'faq.q2': 'Hoe lang duurt het?',
   'faq.a2': 'Dat hangt af van wat we bouwen, maar je krijgt een duidelijke planning in je voorstel vóór we beginnen. We bouwen stap voor stap en tonen vroeg werkende software, dus je tast nooit in het duister over de voortgang.',
-  'faq.q3': 'Word ik echt eigenaar van de software?',
-  'faq.a3': 'Ja — 100%. Bij oplevering is de code en alles eromheen volledig van jou. Geen lock-in, geen lease, geen maandelijkse licentie om te blijven gebruiken waarvoor je hebt betaald.',
+  'faq.q3': 'Is het een eenmalig project of een abonnement?',
+  'faq.a3': 'Beide kan. Afhankelijk van wat we bouwen, bieden we eenmalige oplevering of een doorlopend abonnement met support, updates en hosting. We adviseren wat het beste past bij jouw situatie en budget.',
   'faq.q4': 'En als ik na livegang wijzigingen nodig heb?',
   'faq.a4': 'We blijven beschikbaar voor updates, fixes en nieuwe functies wanneer je ze nodig hebt — altijd op jouw voorwaarden. Geen verplicht supportcontract; je neemt contact op als er iets is.',
   'faq.q5': 'Waar zijn jullie gevestigd?',
@@ -171,6 +193,11 @@ function vxT(key, fallback) {
     });
     document.title = (lang === 'nl' && VX_NL['meta.title']) ? VX_NL['meta.title'] : enTitle;
     if (metaDesc) metaDesc.setAttribute('content', (lang === 'nl' && VX_NL['meta.desc']) ? VX_NL['meta.desc'] : enDesc);
+    var wa = document.getElementById('wa-fab');
+    if (wa) {
+      var waMsg = (lang === 'nl' && VX_NL['wa.text']) ? VX_NL['wa.text'] : "Hi Vindex! I'd like to talk about a project.";
+      wa.setAttribute('href', 'https://wa.me/31634578138?text=' + encodeURIComponent(waMsg));
+    }
     try { localStorage.setItem('lang', lang); } catch (e) {}
     if (toggle) {
       toggle.textContent = lang === 'nl' ? 'EN' : 'NL';
@@ -234,6 +261,16 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
 if (reduceMotion || !('IntersectionObserver' in window)) {
   reveals.forEach(function (el) { el.classList.add('is-visible'); });
 } else {
+  // Stagger reveals by their position among reveal siblings (cascade per grid/list)
+  reveals.forEach(function (el) {
+    var parent = el.parentElement;
+    if (!parent) return;
+    var sibs = Array.prototype.filter.call(parent.children, function (c) {
+      return c.classList && c.classList.contains('reveal');
+    });
+    var idx = sibs.indexOf(el);
+    if (idx > 0) el.style.setProperty('--reveal-d', (Math.min(idx, 6) * 0.07) + 's');
+  });
   const observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
@@ -357,42 +394,38 @@ document.querySelectorAll('.slider-dot').forEach(function (dot) {
   });
 }());
 
-/* ---- Hero: count-up KPI numbers ---- */
+/* ---- Count-up for any [data-to] number when it scrolls into view ---- */
 (function () {
-  const visual = document.querySelector('.hero-visual');
-  if (!visual) return;
-  const nums = visual.querySelectorAll('.kpi-num');
+  const nums = document.querySelectorAll('[data-to]');
+  if (!nums.length || reduceMotion || !('IntersectionObserver' in window)) return;
 
   function countUp(el) {
     const to = parseFloat(el.dataset.to);
     const dec = parseInt(el.dataset.dec || '0', 10);
     const pre = el.dataset.prefix || '';
     const suf = el.dataset.suffix || '';
-    const duration = 1600;
+    const duration = 1500;
     const start = performance.now();
-    function tick(now) {
+    (function tick(now) {
       const p = Math.min(1, (now - start) / duration);
       const eased = 1 - Math.pow(1 - p, 3); // ease-out cubic
       el.textContent = pre + (to * eased).toFixed(dec) + suf;
       if (p < 1) requestAnimationFrame(tick);
       else el.textContent = pre + to.toFixed(dec) + suf;
-    }
-    requestAnimationFrame(tick);
+    })(performance.now());
   }
 
-  function play() {
-    if (reduceMotion) return; // values already shown in HTML
-    nums.forEach(function (el) { el.textContent = (el.dataset.prefix || '') + '0' + (el.dataset.suffix || ''); });
-    requestAnimationFrame(function () { nums.forEach(countUp); });
-  }
-
-  if (!('IntersectionObserver' in window)) { play(); return; }
   const io = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
-      if (entry.isIntersecting) { play(); io.disconnect(); }
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        el.textContent = (el.dataset.prefix || '') + '0' + (el.dataset.suffix || '');
+        requestAnimationFrame(function () { countUp(el); });
+        io.unobserve(el);
+      }
     });
-  }, { threshold: 0.4 });
-  io.observe(visual);
+  }, { threshold: 0.6 });
+  nums.forEach(function (n) { io.observe(n); });
 }());
 
 /* ---- Dark / light theme toggle ---- */
@@ -446,4 +479,35 @@ document.querySelectorAll('.slider-dot').forEach(function (dot) {
   btn.addEventListener('click', function () {
     window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
   });
+}());
+
+/* ---- Scroll progress bar ---- */
+(function () {
+  const bar = document.getElementById('scroll-progress');
+  if (!bar) return;
+  let ticking = false;
+  function update() {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
+  update();
+}());
+
+/* ---- Subtle parallax on the hero visual ---- */
+(function () {
+  if (reduceMotion) return;
+  const el = document.querySelector('.hero-visual');
+  if (!el) return;
+  let ticking = false;
+  function update() {
+    el.style.transform = 'translateY(' + (window.scrollY * 0.06) + 'px)';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
 }());
